@@ -1,0 +1,58 @@
+Name      Priority encoder for Z80 ;
+PartNo    ATF22V10C ;
+Date      8/14/2023 ;
+Revision  02 ;
+Designer  Frederic Segard ;
+Company   @microhobbyist ;
+Assembly  None ;
+Location   ;
+Device    g22v10 ;
+
+/* *************** INPUT PINS *********************/
+PIN 1   = I0  ;
+PIN 2   = I1  ;
+PIN 3   = I2  ;
+PIN 4   = I3  ;
+PIN 5   = I4  ;
+PIN 6   = I5  ;
+PIN 7   = I6  ;
+PIN 8   = I7  ;
+PIN 9   = I8  ;
+PIN 10  = I9  ;
+PIN 11  = I10 ;
+PIN 13  = I11 ;
+PIN 14  = I12 ;
+PIN 15  = I13 ;
+PIN 16  = I14 ;
+PIN 17  = I15 ;
+
+/* *************** OUTPUT PINS *********************/
+PIN 23  = INT ;
+PIN 22  = D0  ;
+PIN 21  = D1  ;
+PIN 20  = D2  ;
+PIN 19  = D3  ;
+
+FIELD INPUT = [I15..I0] ;
+FIELD OUTPUT = [D3..D0] ;
+
+TABLE INPUT => OUTPUT {
+'b'xxxxxxxxxxxxxxx0 => 'd'0 ;
+'b'xxxxxxxxxxxxxx01 => 'd'1 ;
+'b'xxxxxxxxxxxxx011 => 'd'2 ;
+'b'xxxxxxxxxxxx0111 => 'd'3 ;
+'b'xxxxxxxxxxx01111 => 'd'4 ;
+'b'xxxxxxxxxx011111 => 'd'5 ;
+'b'xxxxxxxxx0111111 => 'd'6 ;
+'b'xxxxxxxx01111111 => 'd'7 ;
+'b'xxxxxxx011111111 => 'd'8 ;
+'b'xxxxxx0111111111 => 'd'9 ;
+'b'xxxxx01111111111 => 'd'10 ;
+'b'xxxx011111111111 => 'd'11 ;
+'b'xxx0111111111111 => 'd'12 ;
+'b'xx01111111111111 => 'd'13 ;
+'b'x011111111111111 => 'd'14 ;
+'b'0111111111111111 => 'd'15 ;
+}
+
+IRQ = I0 & I1 & I2 & I3 & I4 & I5 & I6 & I7 & I8 & I9 & I10 & I11 & I12 & I13 & I14 & I15;
