@@ -31,6 +31,6 @@ FIELD ADDRESS = [A7..A2];
 
 SIO_CS   = ADDRESS:[00..03] ;
 CTC_CS   = ADDRESS:[04..07] ;
-PS2_CS   = ADDRESS:[08..0F] ;
+PS2_CS   = ADDRESS:[08..0B] ;
 MODE2    = M1 # IORQ ;
 
