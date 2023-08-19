@@ -1,0 +1,52 @@
+Name      CPU_card_main_glue_logic ;
+PartNo    ATF22V10C ;
+Date      18/8/2023 ;
+Revision  1 ;
+Designer  Frederic Segard ;
+Company   @microhobbyist ;
+Assembly  None ;
+Location  ;
+Device    g22v10 ;
+
+/* *************** INPUT PINS ***************************/
+PIN 1   = RESET    ; /* Reset (int. SR R)               */
+PIN 2   = MREQ     ; /* Memory request                  */
+PIN 3   = IORQ     ; /* I/O request                     */
+PIN 4   = M1       ; /* M1 cycle                        */
+PIN 5   = WR       ; /* Write                           */
+PIN 6   = RD       ; /* Read                            */
+PIN 7   = A2       ; /* Address line 2                  */
+PIN 8   = A3       ; /* Address line 3                  */
+PIN 9   = A4       ; /* Address line 4                  */
+PIN 10  = A5       ; /* Address line 5                  */
+PIN 11  = A6       ; /* Address line 6                  */
+PIN 13  = A7       ; /* Address line 7                  */
+
+
+/* *************** OUTPUT PINS **************************/
+PIN 23  = BANKWR   ; /* Write BANK register             */
+PIN 22  = BANKRD   ; /* Read BANK register              */
+PIN 21  = INTRD    ; /* Read interrut priority register */
+PIN 20  = ROMDIS   ; /* Disables ROM after shadow copy  */
+PIN 19  = MODE2OE  ; /* Auto load interrupt vector      */
+PIN 17  = RAMOE    ; /* RAM output enable               */
+PIN 16  = ROMCS    ; /* ROM chip select                 */
+PIN 15  = RAMSEL   ; /* RAM select (int. SR)            */
+PIN 14  = ROMSEL   ; /* ROM select (int. SR)            */ 
+
+
+/* *************** EQUATIONS ****************************/
+FIELD ADDRESS = [A7..2] ;
+
+RAMSEL  =  RESET  & ROMSEL ;
+ROMSEL  =  ROMDIS & RAMSEL ;
+
+ROMCS   =  ROMSEL # MREQ ;
+RAMOE   =  RAMSEL # RD ;
+
+ BANKWR =  ADDRESS:[30..33] & M1 & !IORQ & !WR ;
+!BANKRD =  ADDRESS:[30..33] & M1 & !IORQ & !RD ;
+ INTRD  =  ADDRESS:[34..37] & M1 & !IORQ & !RD ;
+!ROMDIS =  ADDRESS:[38..3B] & M1 & !IORQ & !WR ;
+
+MODE2OE =  IORQ # M1 ;

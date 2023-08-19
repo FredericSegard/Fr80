@@ -1,0 +1,98 @@
+%SIGNAL
+PIN  22 =  D0 
+PIN  21 =  D1 
+PIN  20 =  D2 
+PIN  19 =  D3 
+PIN   1 =  I0 
+PIN   2 =  I1 
+PIN   3 =  I2 
+PIN   4 =  I3 
+PIN   5 =  I4 
+PIN   6 =  I5 
+PIN   7 =  I6 
+PIN   8 =  I7 
+PIN   9 =  I8 
+PIN  10 =  I9 
+PIN  11 =  I10 
+PIN  13 =  I11 
+PIN  14 =  I12 
+PIN  15 =  I13 
+PIN  16 =  I14 
+PIN  17 =  I15 
+PIN  23 =  INT 
+%END
+
+%FIELD
+FIELD INPUT = I15,I14,I13,I12,I11,I10,I9,I8,I7,I6,I5,I4,I3,I2,I1,I0
+FIELD OUTPUT = D3,D2,D1,D0
+%END
+
+%EQUATION
+D0 =>
+    I0 & !I1
+  # I0 & I2 & !I3
+  # I0 & I2 & I4 & !I5
+  # I0 & I2 & I4 & I6 & !I7
+  # I0 & I2 & I4 & I6 & I8 & !I9
+  # I0 & I2 & I4 & I6 & I8 & I10 & !I11
+  # I0 & I2 & I4 & I6 & I8 & I10 & I12 & !I13
+  # I0 & I2 & I4 & I6 & I8 & I10 & I12 & I14 & !I15
+
+D1 =>
+    I0 & I1 & !I2
+  # I0 & I1 & !I3
+  # I0 & I1 & I4 & I5 & !I6
+  # I0 & I1 & I4 & I5 & !I7
+  # I0 & I1 & I4 & I5 & I8 & I9 & !I10
+  # I0 & I1 & I4 & I5 & I8 & I9 & !I11
+  # I0 & I1 & I4 & I5 & I8 & I9 & I12 & I13 & !I14
+  # I0 & I1 & I4 & I5 & I8 & I9 & I12 & I13 & !I15
+
+D2 =>
+    I0 & I1 & I2 & I3 & !I4
+  # I0 & I1 & I2 & I3 & !I5
+  # I0 & I1 & I2 & I3 & !I6
+  # I0 & I1 & I2 & I3 & !I7
+  # I0 & I1 & I2 & I3 & I8 & I9 & I10 & I11 & !I12
+  # I0 & I1 & I2 & I3 & I8 & I9 & I10 & I11 & !I13
+  # I0 & I1 & I2 & I3 & I8 & I9 & I10 & I11 & !I14
+  # I0 & I1 & I2 & I3 & I8 & I9 & I10 & I11 & !I15
+
+D3 =>
+    I0 & I1 & I2 & I3 & I4 & I5 & I6 & I7 & !I8
+  # I0 & I1 & I2 & I3 & I4 & I5 & I6 & I7 & !I9
+  # I0 & I1 & I2 & I3 & I4 & I5 & I6 & I7 & !I10
+  # I0 & I1 & I2 & I3 & I4 & I5 & I6 & I7 & !I11
+  # I0 & I1 & I2 & I3 & I4 & I5 & I6 & I7 & !I12
+  # I0 & I1 & I2 & I3 & I4 & I5 & I6 & I7 & !I13
+  # I0 & I1 & I2 & I3 & I4 & I5 & I6 & I7 & !I14
+  # I0 & I1 & I2 & I3 & I4 & I5 & I6 & I7 & !I15
+
+IRQ =>
+    I0 & I1 & I2 & I3 & I4 & I5 & I6 & I7 & I8 & I9 & I10 & I11 & I12 & I13 & I14 & I15
+
+D0.oe  =>
+    1 
+
+D1.oe  =>
+    1 
+
+D2.oe  =>
+    1 
+
+D3.oe  =>
+    1 
+
+I12.oe  =>
+    0 
+
+I13.oe  =>
+    0 
+
+I14.oe  =>
+    0 
+
+I15.oe  =>
+    0 
+
+%END

@@ -1,0 +1,87 @@
+%SIGNAL
+PIN   7 =  A2 
+PIN   8 =  A3 
+PIN   9 =  A4 
+PIN  10 =  A5 
+PIN  11 =  A6 
+PIN  13 =  A7 
+PIN  22 =  BANKRD 
+PIN  23 =  BANKWR 
+PIN  21 =  INTRD 
+PIN   3 =  IORQ 
+PIN   4 =  M1 
+PIN  19 =  MODE2OE 
+PIN   2 =  MREQ 
+PIN  17 =  RAMOE 
+PIN  15 =  RAMSEL 
+PIN   6 =  RD 
+PIN   1 =  RESET 
+PIN  16 =  ROMCS 
+PIN  20 =  ROMDIS 
+PIN  14 =  ROMSEL 
+PIN   5 =  WR 
+%END
+
+%FIELD
+FIELD ADDRESS = A7,A6,A5,A4,A3,A2
+%END
+
+%EQUATION
+!BANKRD =>
+    !A2 & !A3 & A4 & A5 & !A6 & !A7 & !IORQ & M1 & !RD
+
+BANKWR =>
+    !A2 & !A3 & A4 & A5 & !A6 & !A7 & !IORQ & M1 & !WR
+
+INTRD =>
+    A2 & !A3 & A4 & A5 & !A6 & !A7 & !IORQ & M1 & !RD
+
+MODE2OE =>
+    IORQ
+  # M1
+
+RAMOE =>
+    RAMSEL
+  # RD
+
+RAMSEL =>
+    RESET & ROMSEL
+
+ROMCS =>
+    MREQ
+  # ROMSEL
+
+!ROMDIS =>
+    !A2 & A3 & A4 & A5 & !A6 & !A7 & !IORQ & M1 & !WR
+
+ROMSEL =>
+    RAMSEL & ROMDIS
+
+BANKRD.oe  =>
+    1 
+
+BANKWR.oe  =>
+    1 
+
+INTRD.oe  =>
+    1 
+
+MODE2OE.oe  =>
+    1 
+
+RAMOE.oe  =>
+    1 
+
+RAMSEL.oe  =>
+    1 
+
+ROMCS.oe  =>
+    1 
+
+ROMDIS.oe  =>
+    1 
+
+ROMSEL.oe  =>
+    1 
+
+%END

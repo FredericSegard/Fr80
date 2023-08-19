@@ -1,4 +1,4 @@
-21920968334350400
+21929474172905243
 0_Library
 8_Segment_Bar_graph
 
@@ -14,7 +14,21 @@ Display
 20
 20
 0_Library
+100x100 dev board with a 64-pin header.
+Standard 100mm² board size with a 2x32 integrated header
+
+0
+69
+65
+0_Library
 1458C4B_Hamnmond
+
+
+0
+4
+1
+0_Library
+1598ESGYPBK_Hammond
 
 
 0
@@ -63,6 +77,13 @@ BUS ISA AT CARD EDGE 16-bit IBM PC AT
 99
 99
 0_Library
+BUS_AT v2
+16-bits ISA Card Edge PCB Bus
+BUS ISA AT CARD EDGE 16-bit IBM PC AT
+0
+98
+98
+0_Library
 BUS_XT
 8-bits ISA Card Edge PCB Bus
 BUS CARD EDGE 8-bit IBM PC XT
@@ -90,6 +111,13 @@ THT DIP DIL PDIP 2.54mm 7.62mm 300mil Socket
 0
 4
 4
+0_Library
+Heatsink_TO220_Horizontal
+Heatsink TO-220 Horizontal
+Heatsink TO-220 Horizontal 
+0
+1
+1
 0_Library
 ISA_Connector
 6-5530843-5-1
@@ -175,7 +203,14 @@ NES_Connector
 9
 7
 0_Library
-PinHeader_2x02_Vertical
+PinHeader_1x2_Vertical (Modified)
+Through hole straight pin header, 1x02, 2.54mm pitch, single row (Narrower pads)
+Through hole pin header THT 1x02 2.54mm single row
+0
+2
+2
+0_Library
+PinHeader_2x2_Vertical (Modified)
 Through hole straight pin header, 2x02, 2.54mm pitch, double rows (Narrower pads)
 Through hole pin header THT 2x02 2.54mm double row
 0

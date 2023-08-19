@@ -1,0 +1,131 @@
+%SIGNAL
+PIN  10 =  A15 
+PIN  23 =  BA15 
+PIN  22 =  BA16 
+PIN  21 =  BA17 
+PIN  20 =  BA18 
+PIN  19 =  BA19 
+PIN  18 =  BA20 
+PIN  17 =  BA21 
+PIN  16 =  BA22 
+PIN   1 =  BANKWR 
+PIN   2 =  D0 
+PIN   3 =  D1 
+PIN   4 =  D2 
+PIN   5 =  D3 
+PIN   6 =  D4 
+PIN   7 =  D5 
+PIN   8 =  D6 
+PIN   9 =  D7 
+PIN  15 =  RAMCS1 
+PIN  14 =  RAMCS2 
+PIN  11 =  RAMOE 
+PIN  13 =  RESET 
+%END
+
+%FIELD
+FIELD INPUT = D7,D6,D5,D4,D3,D2,D1,D0,A15
+FIELD OUTPUT = RAMCS2,RAMCS1
+%END
+
+%EQUATION
+BA15.d  =>
+    D0
+  # A15 & BA19 & BA20 & BA21 & BA22
+
+BA15.ar BA16.ar BA17.ar BA18.ar BA19.ar BA20.ar BA21.ar BA22.ar  =>
+    !RESET
+
+BA15.sp BA16.sp BA17.sp BA18.sp BA19.sp BA20.sp BA21.sp BA22.sp  =>
+    0 
+
+BA16.d  =>
+    D1
+  # A15 & BA19 & BA20 & BA21 & BA22
+
+BA16.ar  =>
+    
+BA16.sp  =>
+    
+BA17.d  =>
+    D2
+  # A15 & BA19 & BA20 & BA21 & BA22
+
+BA17.ar  =>
+    
+BA17.sp  =>
+    
+BA18.d  =>
+    D3
+  # A15 & BA19 & BA20 & BA21 & BA22
+
+BA18.ar  =>
+    
+BA18.sp  =>
+    
+BA19.d  =>
+    D4
+
+BA19.ar  =>
+    
+BA19.sp  =>
+    
+BA20.d  =>
+    D5
+
+BA20.ar  =>
+    
+BA20.sp  =>
+    
+BA21.d  =>
+    D6
+
+BA21.ar  =>
+    
+BA21.sp  =>
+    
+BA22.d  =>
+    D7
+
+BA22.ar  =>
+    
+BA22.sp  =>
+    
+RAMCS1 =>
+    !A15 & D0 & !D6 & !D7
+  # !A15 & !D5 & !D6 & !D7
+
+RAMCS2 =>
+    0 
+
+BA15.oe  =>
+    1 
+
+BA16.oe  =>
+    1 
+
+BA17.oe  =>
+    1 
+
+BA18.oe  =>
+    1 
+
+BA19.oe  =>
+    1 
+
+BA20.oe  =>
+    1 
+
+BA21.oe  =>
+    1 
+
+BA22.oe  =>
+    1 
+
+RAMCS1.oe  =>
+    1 
+
+RAMCS2.oe  =>
+    1 
+
+%END

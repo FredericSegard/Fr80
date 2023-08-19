@@ -1,7 +1,7 @@
-Name     CPU_DECODE ;
+Name     CPU_card_IO_logic ;
 PartNo   ATF16V8B ;
-Date     14/8/2023 ;
-Revision 2 ;
+Date     18/8/2023 ;
+Revision 1 ;
 Designer Frederic Segard ;
 Company  microhobbyist ;
 Assembly None ;
@@ -11,21 +11,19 @@ Device   g16v8 ;
 /* *************** INPUT PINS *********************/
 PIN 1   = IORQ     ; /* I/O Request               */ 
 PIN 2   = M1       ; /* M1 cycle                  */ 
-PIN 3   = WR       ; /* Write                     */ 
-PIN 4   = RD       ; /* Read                      */ 
-PIN 5   = A2       ; /* Address line 2            */ 
-PIN 6   = A3       ; /* Address line 3            */ 
-PIN 7   = A4       ; /* Address line 4            */ 
-PIN 8   = A5       ; /* Address line 5            */ 
-PIN 9   = A6       ; /* Address line 6            */ 
-PIN 11  = A7       ; /* Address line 7            */
+PIN 3   = A2       ; /* Address line 2            */ 
+PIN 4   = A3       ; /* Address line 3            */ 
+PIN 5   = A4       ; /* Address line 4            */ 
+PIN 6   = A5       ; /* Address line 5            */ 
+PIN 7   = A6       ; /* Address line 6            */ 
+PIN 8   = A7       ; /* Address line 7            */
 
 /* *************** OUTPUT PINS *********************/
-PIN 12  = MODE2    ; /* Mode 2 automated vector    */ 
-PIN 17  = PS2_CS   ; /* Parallel I/O               */ 
-PIN 18  = CTC_CS   ; /* Counter Timer              */ 
 PIN 19  = SIO_CS   ; /* Serial I/O (Dual UART)     */
-
+PIN 18  = CTC_CS   ; /* Counter Timer              */ 
+PIN 17  = CTC_CS   ; /* Parallel I/O (Dual 8-bit)  */ 
+PIN 16  = PS2_CS   ; /* PS/2               */ 
+PIN 12  = MODE2    ; /* Mode 2 automated vector    */ 
 /* *************** EQUATIONS ***********************/
 FIELD ADDRESS = [A7..A2];
 

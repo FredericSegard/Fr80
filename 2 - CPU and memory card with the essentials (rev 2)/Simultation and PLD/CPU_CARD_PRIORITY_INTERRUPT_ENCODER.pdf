@@ -1,0 +1,213 @@
+{COMPONENT S:\GITHUB\FRE80\2 - CPU AND MEMORY CARD WITH THE ESSENTIALS (REV 2)\SIMULTATION AND PLD\CPU_CARD_PRIORITY_INTERRUPT_ENCODER.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Fri Aug 18 11:28:38 2023 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P I0 {Pt "INPUT"}{Lq 0}{Ploc 100 360}}
+   {P I1 {Pt "INPUT"}{Lq 0}{Ploc 100 320}}
+   {P I2 {Pt "INPUT"}{Lq 0}{Ploc 100 300}}
+   {P I3 {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
+   {P I4 {Pt "INPUT"}{Lq 0}{Ploc 100 260}}
+   {P I5 {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P I6 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P I7 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P I8 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P I9 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P I10 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P I11 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P I12 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P I13 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P I14 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P I15 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P INT {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P D3 {Pt "I/O"}{Lq 0}{Ploc 280 20}}
+   {P D2 {Pt "I/O"}{Lq 0}{Ploc 280 40}}
+   {P D1 {Pt "I/O"}{Lq 0}{Ploc 280 60}}
+   {P D0 {Pt "I/O"}{Lq 0}{Ploc 280 80}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 190 390}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 370}
+   [Ts 15][Tj "RC"]
+   {Pnl 120 330}
+   {Pnl 120 310}
+   {Pnl 120 290}
+   {Pnl 120 270}
+   {Pnl 120 250}
+   {Pnl 120 230}
+   {Pnl 120 210}
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 260 30}
+   {Pnl 260 50}
+   {Pnl 260 70}
+   {Pnl 260 90}
+
+   {Sd A 1 2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 23 19 20 21 22}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 380 250 0}
+   {L 130 360 100 360}
+   {L 130 370 140 360 130 350}
+   {L 130 320 100 320}
+   {L 130 300 100 300}
+   {L 130 280 100 280}
+   {L 130 260 100 260}
+   {L 130 240 100 240}
+   {L 130 220 100 220}
+   {L 130 200 100 200}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 130 100 100 100}
+   {L 130 80 100 80}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   {L 250 20 280 20}
+   {L 250 40 280 40}
+   {L 250 60 280 60}
+   {L 250 80 280 80}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "I0" 140 360}
+   {T "I1" 140 320}
+   {T "I2" 140 300}
+   {T "I3" 140 280}
+   {T "I4" 140 260}
+   {T "I5" 140 240}
+   {T "I6" 140 220}
+   {T "I7" 140 200}
+   {T "I8" 140 180}
+   {T "I9" 140 160}
+   {T "I10" 140 140}
+   {T "I11" 140 120}
+   {T "I12" 140 100}
+   {T "I13" 140 80}
+   {T "I14" 140 60}
+   {T "I15" 140 40}
+   {T "INT" 140 20}
+   [Tj "RC"]
+   {T "D3" 240 20}
+   {T "D2" 240 40}
+   {T "D1" 240 60}
+   {T "D0" 240 80}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "G22V10" 190 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD S:\GITHUB\FRE80\2 - CPU AND MEMORY CARD WITH THE ESSENTIALS (REV 2)\SIMULTATION AND PLD\CPU_CARD_PRIORITY_INTERRUPT_ENCODER 190 380}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N I0
+   }
+   {N I1
+   }
+   {N I2
+   }
+   {N I3
+   }
+   {N I4
+   }
+   {N I5
+   }
+   {N I6
+   }
+   {N I7
+   }
+   {N I8
+   }
+   {N I9
+   }
+   {N I10
+   }
+   {N I11
+   }
+   {N I12
+   }
+   {N I13
+   }
+   {N I14
+   }
+   {N I15
+   }
+   {N INT
+   }
+   {N D3
+   }
+   {N D2
+   }
+   {N D1
+   }
+   {N D0
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

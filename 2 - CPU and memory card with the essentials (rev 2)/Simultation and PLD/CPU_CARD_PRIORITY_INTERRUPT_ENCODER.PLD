@@ -1,7 +1,7 @@
-Name      CPU card priority interrupt encoder ;
+Name      CPU_card_priority_interrupt_encoder ;
 PartNo    ATF22V10C ;
-Date      8/14/2023 ;
-Revision  02 ;
+Date      8/18/2023 ;
+Revision  01 ;
 Designer  Frederic Segard ;
 Company   @microhobbyist ;
 Assembly  None ;
@@ -33,20 +33,20 @@ PIN 21  = D1  ;
 PIN 20  = D2  ;
 PIN 19  = D3  ;
 
-FIELD INPUT = [I15..I0] ;
-FIELD OUTPUT = [D3..D0] ;
+FIELD INPUT = [I15..0] ;
+FIELD OUTPUT = [D3..0] ;
 
 TABLE INPUT => OUTPUT {
-'b'xxxxxxxxxxxxxxx0 => 'd'0 ;
-'b'xxxxxxxxxxxxxx01 => 'd'1 ;
-'b'xxxxxxxxxxxxx011 => 'd'2 ;
-'b'xxxxxxxxxxxx0111 => 'd'3 ;
-'b'xxxxxxxxxxx01111 => 'd'4 ;
-'b'xxxxxxxxxx011111 => 'd'5 ;
-'b'xxxxxxxxx0111111 => 'd'6 ;
-'b'xxxxxxxx01111111 => 'd'7 ;
-'b'xxxxxxx011111111 => 'd'8 ;
-'b'xxxxxx0111111111 => 'd'9 ;
+'b'xxxxxxxxxxxxxxx0 => 'd'0  ;
+'b'xxxxxxxxxxxxxx01 => 'd'1  ;
+'b'xxxxxxxxxxxxx011 => 'd'2  ;
+'b'xxxxxxxxxxxx0111 => 'd'3  ;
+'b'xxxxxxxxxxx01111 => 'd'4  ;
+'b'xxxxxxxxxx011111 => 'd'5  ;
+'b'xxxxxxxxx0111111 => 'd'6  ;
+'b'xxxxxxxx01111111 => 'd'7  ;
+'b'xxxxxxx011111111 => 'd'8  ;
+'b'xxxxxx0111111111 => 'd'9  ;
 'b'xxxxx01111111111 => 'd'10 ;
 'b'xxxx011111111111 => 'd'11 ;
 'b'xxx0111111111111 => 'd'12 ;

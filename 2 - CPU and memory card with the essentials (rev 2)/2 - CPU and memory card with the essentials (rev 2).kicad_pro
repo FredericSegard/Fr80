@@ -247,7 +247,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "2 - CPU and memory card with the essential peripherals.kicad_pro",
+    "filename": "2 - CPU and memory card with the essentials (rev 2).kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -324,32 +324,24 @@
   },
   "sheets": [
     [
-      "86faa30c-e11d-44e5-95c3-00620a8086a9",
+      "144b799e-6064-4d75-b854-e9b611604066",
       ""
     ],
     [
-      "e346c6d4-d2d1-4dbe-8fe8-b0fe78243b24",
-      "Variable Clock"
-    ],
-    [
-      "c133ae76-381e-42d2-8e9f-762ec0bf4a2b",
-      "CPU and Memory"
-    ],
-    [
-      "19597593-d625-4e9b-990e-33626319ad93",
-      "CTC"
-    ],
-    [
-      "6cab0c90-5aab-4708-926d-d2186788fb43",
-      "SIO"
-    ],
-    [
-      "fcececb0-df49-4e0f-adca-8cc7ae495267",
-      "PS2 Keyboard & Mouse"
-    ],
-    [
-      "e15a60e9-aa1a-4c84-9e56-19a44c3e2574",
+      "d5f41f50-4dba-4b1b-8a14-ee6883546558",
       "Glue Logic"
+    ],
+    [
+      "7e0ec4e3-63df-4476-8e32-8f37c96d34d1",
+      "CPU and memory"
+    ],
+    [
+      "494e1a83-34fd-4d1b-916c-a62092caa423",
+      "CTC and SIO"
+    ],
+    [
+      "41391faf-8ecc-4e2c-9e00-3c05f67c0b20",
+      "PIO"
     ]
   ],
   "text_variables": {}
