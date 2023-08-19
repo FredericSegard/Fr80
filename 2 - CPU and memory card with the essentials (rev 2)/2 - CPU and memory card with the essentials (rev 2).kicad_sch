@@ -2670,7 +2670,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 78427c3a-0064-4ecf-971b-a93225a60837)
   )
-  (label "VCLK" (at 59.69 129.54 180) (fields_autoplaced)
+  (label "CTCLK" (at 59.69 129.54 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 7b0ec182-500c-4565-baee-af70ea99dafb)
   )
