@@ -6,7 +6,7 @@
 
   (title_block
     (title "7-slot 16-bit ATX backblane with breadboard connectivity")
-    (date "2023-08-12")
+    (date "2023-08-21")
     (rev "2.1")
     (company "Frederic Segard  (@microhobbyist)")
   )
@@ -5685,16 +5685,6 @@
     (uuid ff95bb64-ef13-40d4-a773-8c51095987ff)
   )
 
-  (text "Suggested pin association for 65C02 (on 8-bit slot):"
-    (at 161.29 175.26 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 3cfe9997-936d-410d-8671-5813ae2377df)
-  )
-  (text "PHI1=~{CLK}, PHI2=CLK, R/~{W}=~{MREQ}, BE=~{BUSRQ}, ~{ML}=~{BUSAK},\nSYNC=~{M1}, RDY=~{WAIT}, ~{VP}=,~{HALT}. ~{WR} and ~{RD} are kept as is\nfor I/O compatibility on some chips that use these signals. It is suggested\nyou use ~{IORQ} as a determined I/O map range.\n"
-    (at 161.29 182.88 0)
-    (effects (font (size 1.1 1.1)) (justify left bottom))
-    (uuid 4879256f-33b4-4956-8777-43ad2e215761)
-  )
   (text "AB15 are bypass jumbers. When\ninstalled horizontally (2-4 and\n1-3), acts as a standard bus\nline. When installed verticaly\n(1-2 or 3-4), determines the\ndirection of IEI and IEO for Z80\nmode 2 interrupts."
     (at 161.29 167.64 0)
     (effects (font (size 1.1 1.1) italic) (justify left bottom))
