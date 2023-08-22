@@ -64,7 +64,7 @@ EOT				= $FF				; End of table
 ;PARAMETERS
 HorizTextRes	= 40				; Horizontal text resolution (40 or 80)
 VertTextRes		= 24				; Vertical text resolution (typical 24 or 25)
-ErrorPtrOffset	= 8					; Take into account the command prompt width
+ErrorPtrOffset	= 9					; Take into account the command prompt width
 BytesFree		= (VectorTable-EndOfCode)+(StartOfCode-InterruptVectorEnd)	; Base free bytes
 
 ; I/O ADDRESSES
@@ -73,13 +73,7 @@ SIO_PortB_Data	= $01				; SIO data port B
 SIO_PortA_Ctrl	= $02				; SIO control port A
 SIO_PortB_Ctrl	= $03				; SIO control port B
 
-;SIO_PortA_Data	= $08				; SIO data port A
-;SIO_PortB_Data	= $09				; SIO data port B
-;SIO_PortA_Ctrl	= $0A				; SIO control port A
-;SIO_PortB_Ctrl	= $0B				; SIO control port B
-
-ClockSelect		= $28				; Clock speed selection address (values $00 to $03)
-BankSelect		= $30				; RAM bank select address (values ($00 to $0E)
+BankSelect		= $30				; RAM bank select address (values ($00 to $FF)
 RomDisable		= $38				; ROM dissable address (any value)
 
 ; STATUS INDICATOR FLAGS (BIT NUMBER... 3 and 5 are not used
@@ -200,6 +194,7 @@ VectorCopy:
 	.org	$8000					; Start of code at beginning of high memory
 
 StartOfCode:
+	ld		A,0
 	out		(RomDisable),A			; Disable the ROM
 	ld      SP,$FFFF				; Set top of stack pointer to page FF
 	
@@ -289,11 +284,12 @@ Main:
 ; ---------------------------------------------------------------------------------------------------------------------
 ; VARIABLES ARE DECLARED IN BYTE SIZE
 
-CommandBuffer:		ds	HorizTextRes-10	; Command prompt buffer
+CommandBuffer:		ds	HorizTextRes; Command prompt buffer
 BufferPointer:		ds	2			; Buffer pointer
 CmdErrorPointer:	ds	1			; Command line error pointer
 CurrentBank:		ds	1			; Keep track of current bank
 CurrentAddress:		ds	2			; Current Address for prompt
+CurrentPort:		ds	1			; Current I/O port
 DigitString			ds	9			; Digit string for numeric conversions (so they are printable with PrintString)
 ParseSaveHL			dw	2			; Saves the HL, as HL is used to call routines, and interferes with registers
 RegA:				ds	1			; Register A

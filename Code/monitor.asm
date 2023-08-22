@@ -712,8 +712,9 @@ ListCmd:
 
 
 ; *********************************************************************************************************************
-; Read a byte of memory
+; Read a byte of a I/O port
 ; *********************************************************************************************************************
+; To be done: Error messages
 
 PeekCmd:
 	push	AF
@@ -723,27 +724,28 @@ PeekCmd:
 	ld		HL,(BufferPointer)		; Restore current buffer pointer in HL
 	
 PeekAddress:
-	call	GetHexParameter			; Get the first parameter, start address
-	jp		nc,PeekEnd				; Exit routine if there was an error in the parameter
-	cp		0						; Is there a first parameter?
-	jr		z,PeekDefault			; No, then print error message
-	jr		PeekRead
-
-PeekDefault
-	ld		BC,(CurrentAddress)
+	call	GetHexParameter			; Get the IO port number parameter
+	jp		nc,PeekError			; Exit routine if there was an error in the parameter
+	cp		0						; Is there a parameter?
+	jr		z,PeekNoParameter		; No, then print a no parameter message
 
 PeekRead:
-	push	BC
-	pop		HL
-	call	PrintWord
+	ld		A,C						; Put port number from command line parameter in accumulator
+	call	PrintByte				; Print the port number
 	ld		A,":"
 	call	PrintChar
-	ld		A,(BC)
-	call	PrintByte
-	call	PrintCRLF
-	ld		(CurrentAddress),BC
+	in		A,(C)					; Read a byte from the specified port number
+	call	PrintByte				; Print the read byte
+	call	PrintCRLF				; Change line
+	jp		PeekEnd					;
 
-PeekEnd
+PeekNoParameter:
+	call	NoParameter
+	jp		PeekEnd
+	
+PeekError:
+
+PeekEnd:
 	pop		HL
 	pop		BC
 	pop		AF
@@ -758,9 +760,10 @@ PeekEnd
 
 
 ; *********************************************************************************************************************
-; Write a byte to a specific memory address
-;	- Input:	Parameters: Address & Byte
+; Write a byte to a specific I/O port
+;	- Input:	Parameters: Port number & Byte
 ; *********************************************************************************************************************
+; To be done: Error message
 
 PokeCmd:
 	push 	AF
@@ -769,34 +772,39 @@ PokeCmd:
 	
 	ld		HL,(BufferPointer)		; Restore current buffer pointer in HL
 	
-PokeAddress:
-	call	GetHexParameter			; Get the first parameter, start address
-	jp		nc,PokeEnd				; Exit routine if there was an error in the parameter
+PokeGetPort:
+	call	GetHexParameter			; Get the first parameter, port number (byte in C)
+	jp		nc,PokeError			; Exit routine if there was an error in the parameter
 	cp		0						; Is there a first parameter?
 	jr		z,PokeNoParameter		; No, then print error message
-	ld		(StartAddress),BC		; Store start address
+	ld		A,C
+	ld		(CurrentPort),A			; Store port number for later use (cheaper than push-pop)
 	
-PokeByte:
+PokeGetByte:
 	call	GetHexParameter			; Get the second parameter, byte to write
-	jr		nc,PokeEnd				; Exit routine if there was an error in the parameter
+	jr		nc,PokeError			; Exit routine if there was an error in the parameter
 	cp		0						; Is there a third parameter?
 	jr		z,PokeNoParameter		; No, then print error message
-	ld		A,C						; Transfer C in accumulator to transfer in it in RAM
+	ld		A,C						; Save byte for later use
+	ld		B,A						; ... and put it in B
 
 PokeWrite:
-	ld		HL,(StartAddress)
-	ld		(HL),A
-	call	PrintWord
+	ld		A,(CurrentPort)			; Read back the stored port number
+	ld		C,A						; Copy it in C for later use
+	call	PrintByte				; Print it
 	ld		A,":"
 	call	PrintChar
-	ld		A,C
+	out		(C),B					; Write byte in B, to port address in C
+	ld		A,B						; Place the byte to print in the accumulator
 	call	PrintByte
 	call	PrintCRLF
-	ld		(CurrentAddress),HL
 	jr		PokeEnd
 
 PokeNoParameter:
 	call	NoParameter
+	jp		PokeEnd
+
+PokeError:
 	
 PokeEnd
 	pop		HL

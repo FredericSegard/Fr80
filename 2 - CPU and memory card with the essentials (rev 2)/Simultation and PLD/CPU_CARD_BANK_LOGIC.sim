@@ -17,15 +17,13 @@ PIN   6 =  D4
 PIN   7 =  D5 
 PIN   8 =  D6 
 PIN   9 =  D7 
+PIN  11 =  MREQ 
 PIN  15 =  RAMCS1 
 PIN  14 =  RAMCS2 
-PIN  11 =  RAMOE 
 PIN  13 =  RESET 
 %END
 
 %FIELD
-FIELD INPUT = D7,D6,D5,D4,D3,D2,D1,D0,A15
-FIELD OUTPUT = RAMCS2,RAMCS1
 %END
 
 %EQUATION
@@ -92,11 +90,19 @@ BA22.ar  =>
 BA22.sp  =>
     
 RAMCS1 =>
-    !A15 & D0 & !D6 & !D7
-  # !A15 & !D5 & !D6 & !D7
+    !A15 & !BA19
+  # !A15 & !BA20
+  # !A15 & !BA21
+  # !A15 & !BA22
+  # MREQ
 
 RAMCS2 =>
-    0 
+    BA19
+  # !BA20
+  # !BA21
+  # !BA22
+  # A15
+  # MREQ
 
 BA15.oe  =>
     1 

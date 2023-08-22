@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 0,
+    "active_layer": 37,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -64,7 +64,7 @@
       35,
       36
     ],
-    "visible_layers": "ffffeff_7ffffffe",
+    "visible_layers": "ffffeff_ffffffff",
     "zone_display_mode": 0
   },
   "meta": {
@@ -79,22 +79,10 @@
         "window": {
           "display": 0,
           "maximized": false,
-          "pos_x": 71,
-          "pos_y": 0,
+          "pos_x": 42,
+          "pos_y": 11,
           "size_x": 1554,
           "size_y": 1359
-        }
-      },
-      {
-        "name": "1 - ATX 16 bit ISA passive backplane.kicad_pcb",
-        "open": false,
-        "window": {
-          "display": 0,
-          "maximized": false,
-          "pos_x": 79,
-          "pos_y": 30,
-          "size_x": 1712,
-          "size_y": 1346
         }
       }
     ]

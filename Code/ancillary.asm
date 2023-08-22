@@ -21,7 +21,7 @@ CommandPrompt:
 	push	AF
 	push	HL
 	ld		A,(CurrentBank)			; Get Current Bank number
-	call	PrintNibble				; Print it
+	call	PrintByte				; Print it
 	ld		A,":"					; 
 	call	PrintChar				; Print colon symbol
 	ld		HL,(CurrentAddress)

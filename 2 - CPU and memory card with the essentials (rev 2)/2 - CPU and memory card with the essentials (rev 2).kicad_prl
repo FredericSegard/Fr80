@@ -71,6 +71,19 @@
     "version": 3
   },
   "project": {
-    "files": []
+    "files": [
+      {
+        "name": "2 - CPU and memory card with the essentials (rev 2).kicad_sch",
+        "open": false,
+        "window": {
+          "display": 0,
+          "maximized": false,
+          "pos_x": 389,
+          "pos_y": 15,
+          "size_x": 1554,
+          "size_y": 1359
+        }
+      }
+    ]
   }
 }

@@ -1,6 +1,6 @@
 Name      CPU_card_bank_switching_logic ;
 PartNo    ATF22V10C ;
-Date      18/8/2023 ;
+Date      21/8/2023 ;
 Revision  1 ;
 Designer  Frederic Segard ;
 Company   @microhobbyist ;
@@ -19,7 +19,7 @@ PIN 7   = D5       ; /* Data bit 5                */
 PIN 8   = D6       ; /* Data bit 6                */
 PIN 9   = D7       ; /* Data bit 7                */
 PIN 10  = A15      ; /* Address line 15           */ 
-PIN 11  = RAMOE    ; /* RAM Chip Select           */
+PIN 11  = MREQ     ; /* MREQ from CPU             */
 PIN 13  = RESET    ; /* Reset                     */ 
 
 /* *************** OUTPUT PINS *********************/
@@ -54,21 +54,14 @@ BA20.sp = 'b'0 ;
 BA21.sp = 'b'0 ;
 BA22.sp = 'b'0 ;
 
-BA15.d = D0 # (A15 & !BA22 & !BA21 & !BA20 & !BA19) ;
-BA16.d = D1 # (A15 & !BA22 & !BA21 & !BA20 & !BA19) ;
-BA17.d = D2 # (A15 & !BA22 & !BA21 & !BA20 & !BA19) ;
-BA18.d = D3 # (A15 & !BA22 & !BA21 & !BA20 & !BA19) ;
+BA15.d = D0 # (A15 & !BA19 & !BA20 & !BA21 & !BA22) ;
+BA16.d = D1 # (A15 & !BA19 & !BA20 & !BA21 & !BA22) ;
+BA17.d = D2 # (A15 & !BA19 & !BA20 & !BA21 & !BA22) ;
+BA18.d = D3 # (A15 & !BA19 & !BA20 & !BA21 & !BA22) ;
 BA19.d = D4 ;
 BA20.d = D5 ;
 BA21.d = D6 ;
 BA22.d = D7 ;
 
-FIELD INPUT = [D7..0],A15 ;
-FIELD OUTPUT = RAMCS2,RAMCS1 ;
-
-TABLE INPUT => OUTPUT {
-'b'0000xxxxx => 'b'10;
-'b'0001xxxx0 => 'b'01;
-'b'0001xxxx1 => 'b'10;
-
-}
+RAMCS1 = (!A15 & BA19) # (!A15 & BA20) # (!A15 & BA21) # (!A15 & BA22) # MREQ ;
+RAMCS2 = !BA19 # BA20 # BA21 # BA22 # A15 # MREQ ;

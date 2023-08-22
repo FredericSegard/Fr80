@@ -35,9 +35,9 @@ CommandList:						; Commands must be in uppercase, and the jp opcode also acts a
 	jp		ListCmd					;
 	db		"LOAD"					; Intel Hex load command
 	jp		IntelHex				;
-	db		"PEEK"					; Read a byte of memory
+	db		"PEEK"					; Read a byte from I/O port
 	jp		PeekCmd					;
-	db		"POKE"					; Write a byte of memory (destructive)
+	db		"POKE"					; Write a byte to I/O port
 	jp		PokeCmd					;
 	db		"REG"					; Prints the content of the registers
 	jp		Registers				;
@@ -59,19 +59,19 @@ ListOfCommands:
 	db		"- BANK [N]: Sets current bank",CR,LF
 	db		"- BASIC: Nascom MS BASIC",CR,LF
 	db		"- CLS: Clear screen",CR,LF
-	db		"- COPY SSSS DDDD BBBB: Copy memory block"
+	db		"- COPY SSSS DDDD BBBB: Copy memory block",CR,LF
 	db		"- DIAG: Diagnostics (RAM)",CR,LF
 	db		"- DUMP [AAAA] [LL]: Memory hex dump",CR,LF
 	db		"- FILL SSSS EEEE BB: Fill memory",CR,LF
 ;	db		"- FORTH: Camel Forth, by Brad Rodriguez",CR,LF
 	db		"- LIST: List of commands",CR,LF
 	db		"- LOAD: Intel Hex loader",CR,LF
-	db		"- PEEK: Read a byte of memory",CR,LF
-	db		"- POKE: Write a byte in memory",CR,LF
+	db		"- PEEK PP: Read a byte from I/O port",CR,LF
+	db		"- POKE PP BB: Write a byte to I/O port",CR,LF
 	db		"- REG: Z80 registers",CR,LF
 	db		"- RUN [AAAA]: Esecute a program",CR,LF
 	db		"- SYSINFO: System information",CR,LF
-	db		"- WRITE AAAA BB [BB]...: Write x bytes",CR,LF
+	db		"- WRITE AAAA BB [BB]...: Write to RAM",CR,LF
 	db		"- ZERO: Zero free RAM, banks included",CR,LF
 	db		LF
 	db		" * Type ? in command parameter for help",CR,LF

@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Fri Aug 18 11:25:45 2023 "}
+  {DBtime "Mon Aug 21 18:41:21 2023 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -43,7 +43,7 @@
    {P D6 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
    {P D7 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
    {P A15 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
-   {P RAMOE {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P MREQ {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
    {P RESET {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
    {P RAMCS2 {Pt "I/O"}{Lq 0}{Ploc 320 20}}
    {P RAMCS1 {Pt "I/O"}{Lq 0}{Ploc 320 40}}
@@ -131,7 +131,7 @@
    {T "D6" 140 100}
    {T "D7" 140 80}
    {T "A15" 140 60}
-   {T "RAMOE" 140 40}
+   {T "MREQ" 140 40}
    {T "RESET" 140 20}
    [Tj "RC"]
    {T "RAMCS2" 280 20}
@@ -187,7 +187,7 @@
    }
    {N A15
    }
-   {N RAMOE
+   {N MREQ
    }
    {N RESET
    }
