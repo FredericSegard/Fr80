@@ -72,19 +72,6 @@
     "version": 3
   },
   "project": {
-    "files": [
-      {
-        "name": "1 - ATX 16 bit ISA passive backplane.kicad_sch",
-        "open": false,
-        "window": {
-          "display": 0,
-          "maximized": false,
-          "pos_x": 42,
-          "pos_y": 11,
-          "size_x": 1554,
-          "size_y": 1359
-        }
-      }
-    ]
+    "files": []
   }
 }
