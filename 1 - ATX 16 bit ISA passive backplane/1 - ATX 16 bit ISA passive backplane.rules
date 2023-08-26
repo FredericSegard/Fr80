@@ -11,7 +11,7 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 3518)
+    (start_pass_no 4347)
     (layer_rule F.Cu
       (active on)
       (preferred_direction vertical)
@@ -40,6 +40,15 @@
     )
     (attach off)
   )
+  (padstack "Via[0-1]_1000:500_um"
+    (shape
+      (circle F.Cu 1000.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1000.0 0.0 0.0)
+    )
+    (attach off)
+  )
   (padstack "Via[0-1]_1200:600_um"
     (shape
       (circle F.Cu 1200.0 0.0 0.0)
@@ -58,8 +67,29 @@
     )
     (attach off)
   )
+  (padstack "Via[0-1]_1400:700_um"
+    (shape
+      (circle F.Cu 1400.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1400.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_800:600_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
   (via 
     "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_1000:500_um" "Via[0-1]_1000:500_um" default
   )
   (via 
     "Via[0-1]_1200:600_um" "Via[0-1]_1200:600_um" default
@@ -68,7 +98,16 @@
     "Via[0-1]_1600:800_um" "Via[0-1]_1600:800_um" default
   )
   (via 
+    "Via[0-1]_1400:700_um" "Via[0-1]_1400:700_um" default
+  )
+  (via 
+    "Via[0-1]_800:600_um" "Via[0-1]_800:600_um" default
+  )
+  (via 
     "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_1000:500_um-kicad_default" "Via[0-1]_1000:500_um" "kicad_default"
   )
   (via 
     "Via[0-1]_1200:600_um-kicad_default" "Via[0-1]_1200:600_um" "kicad_default"
@@ -77,13 +116,28 @@
     "Via[0-1]_1600:800_um-kicad_default" "Via[0-1]_1600:800_um" "kicad_default"
   )
   (via 
+    "Via[0-1]_1400:700_um-kicad_default" "Via[0-1]_1400:700_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:600_um-kicad_default" "Via[0-1]_800:600_um" "kicad_default"
+  )
+  (via 
     "Via[0-1]_800:400_um-Power" "Via[0-1]_800:400_um" Power
+  )
+  (via 
+    "Via[0-1]_1000:500_um-Power" "Via[0-1]_1000:500_um" Power
   )
   (via 
     "Via[0-1]_1200:600_um-Power" "Via[0-1]_1200:600_um" Power
   )
   (via 
     "Via[0-1]_1600:800_um-Power" "Via[0-1]_1600:800_um" Power
+  )
+  (via 
+    "Via[0-1]_1400:700_um-Power" "Via[0-1]_1400:700_um" Power
+  )
+  (via 
+    "Via[0-1]_800:600_um-Power" "Via[0-1]_800:600_um" Power
   )
   (via_rule
     default "Via[0-1]_800:400_um"
@@ -92,7 +146,7 @@
     "kicad_default" "Via[0-1]_800:400_um-kicad_default"
   )
   (via_rule
-    Power "Via[0-1]_1200:600_um-Power"
+    Power "Via[0-1]_1000:500_um-Power"
   )
   (class default
     (clearance_class default)
@@ -105,22 +159,22 @@
     )
   )
   (class "kicad_default"
-    "Net-(D1-A)" "Net-(D2-A)" "Net-(C3-Pad1)" "Net-(C4-Pad1)" "Net-(RS1-VCC)" "Net-(D1-K)" /D7 /D6
+    "Net-(D2-A)" "Net-(C38-Pad1)" "Net-(C39-Pad1)" "/Power/ALT_5V" /Power/ALT2 "/Power/ALT_3V3" /D7 /D6
     /D5 /D4 /D3 /D2 /D1 /D0 /TX /RX
-    /USR3 /USR2 /USR1 /IEO1 /A15 /A14 /A13 /A12
+    /USR3 /USR2 /USR1 "Net-(D3-A)" /A15 /A14 /A13 /A12
     /A11 /A10 /A9 /A8 /A7 /A6 /A5 /A4
     /A3 /A2 /A1 /A0 /~{RESET} /USR4 /~{NMI} /~{WAIT}
-    /~{MREQ} /~{IORQ} /~{WR} /~{RD} /IEI1 /~{INT} /~{BUSAK} /~{BUSRQ}
-    /CLK /USR9 /USR10 /~{IRQ10} /~{IRQ11} /~{IRQ12} /~{HALT} /~{CLK}
-    /~{M1} /CLK2 /~{IRQ13} /A23 /A22 /A21 /A20 /A19
-    /A18 /A17 /A16 /~{IRQ7} /D8 /D9 /D10 /D11
-    /D12 /D13 /D14 /D15 /~{IRQ6} /USR5 /~{IRQ14} /~{IRQ15}
-    /MOSI /MISO /SCLK /USR6 /USR7 /USR8 "Net-(D2-K)" /SCL
-    /SDA /~{IRQ5} /~{IRQ4} /~{IRQ3} /IEO2 /IEI2 /IEO3 /IEI3
-    /IEO4 /IEI4 /IEO5 /IEI5 /IEO6 /IEI6 /IEO7 /IEI7
-    /IEI8 /IEO8 "/Power/~{PS_ON}" "Net-(J20-Pin_2)" /TX2 /RX2 "unconnected-(J18-PG-Pad8)" "Net-(U1-Pad4)"
-    "unconnected-(U1-Pad12)" "unconnected-(J18-NC-Pad20)" "Net-(J19-Pin_2)" "/Reset & LEDs/-RST" "/Reset & LEDs/+RST" "Net-(D3-K)" "Net-(J22-Pin_2)" "Net-(J24-Pin_2)"
-    "Net-(J25-Pin_2)" /Power/3V3 "Net-(U3B-C)" "Net-(U3A-C)" "/Power/~{PWR_UP}" "Net-(U3A-D)" "Net-(U3B-D)"
+    /~{MREQ} /~{IORQ} /~{WR} /~{RD} /~{IRQ1} /~{IRQ2} /~{BUSAK} /~{BUSRQ}
+    /CLK /~{IRQ10} /~{IRQ11} /~{IRQ12} /~{HALT} /~{CLK} /~{M1} /CLK2
+    /~{IRQ13} /A23 /A22 /A21 /A20 /A19 /A18 /A17
+    /A16 /~{IRQ7} /D8 /D9 /D10 /D11 /D12 /D13
+    /D14 /D15 /~{IRQ6} /USR5 /~{IRQ14} /~{IRQ15} /MOSI /MISO
+    /SCLK /USR6 "Net-(D2-K)" /SCL /SDA /~{IRQ5} /~{IRQ4} /~{IRQ3}
+    /CTCLK1 /CTCLK2 "/Power/ATX_3V3" "/Power/ATX_5V" "unconnected-(J10-PG-Pad8)" "unconnected-(J10-NC-Pad20)" /Power/ALT1 "Net-(J12-Pin_3)"
+    "Net-(J12-Pin_4)" /Power/ATX "Net-(J13-Pin_1)" "Net-(J17-Pin_1)" "Net-(Q1-G)" "Net-(Q2-E)" "/Power/~{PS_ON}" "Net-(J20-Pin_2)"
+    /TX2 /RX2 "Net-(SW1-A)" "Net-(U1-Pad4)" "Net-(SW2-A)" "Net-(R10-Pad2)" "/Power/ATX_-5V" "/Reset & LEDs/-RST"
+    "/Reset & LEDs/+RST" "Net-(D3-K)" "Net-(U3B-~{R})" "Net-(U3A-C)" "/Power/~{PWR_UP}" "Net-(U3A-D)" "unconnected-(U3B-~{Q}-Pad8)" /USR7
+    /USR8 /~{IRQ8} /~{IRQ9} /Power/Vin "unconnected-(J10-+3.3V-Pad12)"
     (clearance_class "kicad_default")
     (via_rule kicad_default)
     (rule
@@ -131,7 +185,7 @@
     )
   )
   (class Power
-    GND +5V "-5V" +12V "-12V" +3V3 VCC
+    GND +5V +12V "-12V" +3V3 VCC
     (clearance_class Power)
     (via_rule Power)
     (rule

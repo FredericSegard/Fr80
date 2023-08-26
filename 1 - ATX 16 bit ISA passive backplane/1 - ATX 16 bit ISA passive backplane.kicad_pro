@@ -55,12 +55,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        "courtyards_overlap|102763001|20540001|57df75fe-4cc2-4007-bce3-588552830144|87dd4e44-62ae-468c-9214-956f4ea122b5",
-        "courtyards_overlap|94004001|19270001|48ec29d2-7905-49dc-82fa-c2fbe71fd30d|cd4e0bbb-34e0-4c7a-917f-87e82c1979b8",
-        "courtyards_overlap|96925001|19270001|cd4e0bbb-34e0-4c7a-917f-87e82c1979b8|d6c791aa-4790-40e9-862f-067c016b6ac6",
-        "courtyards_overlap|99846001|19270001|87dd4e44-62ae-468c-9214-956f4ea122b5|d6c791aa-4790-40e9-862f-067c016b6ac6"
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -123,7 +118,7 @@
         "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.19999999999999998,
         "min_microvia_drill": 0.09999999999999999,
-        "min_resolved_spokes": 2,
+        "min_resolved_spokes": 1,
         "min_silk_clearance": 0.0,
         "min_text_height": 0.7999999999999999,
         "min_text_thickness": 0.08,
@@ -451,8 +446,8 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.5,
-        "via_diameter": 1.2,
-        "via_drill": 0.6,
+        "via_diameter": 1.0,
+        "via_drill": 0.5,
         "wire_width": 6
       }
     ],
@@ -469,10 +464,6 @@
       {
         "netclass": "Power",
         "pattern": "+5V"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "-5V"
       },
       {
         "netclass": "Power",
@@ -528,7 +519,7 @@
     },
     "net_format_name": "",
     "page_layout_descr_file": "",
-    "plot_directory": "Docs/",
+    "plot_directory": "Docs and Images/",
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
     "spice_model_current_sheet_as_root": true,
