@@ -12,6 +12,8 @@ It is a passive backplane, so there should be no interference with other signal 
 
 I have not sent it for manufacturing yet. Since I may do a few more tweaks to it. Such as the Z80 IEI-IEO interrupt-enable daisy chaining, where I will but a series of jumpers to facilitate daisy-chaining between the physical connectors.
 
+![Front of board](https://github.com/FredericSegard/Fr80/blob/main/1%20-%20ATX%2016%20bit%20ISA%20passive%20backplane/Docs%20and%20Images/ATX%20backplane%20(front).jpg?raw=true)
+
 ### The Core CPU card:
 
 Work in Progress...
