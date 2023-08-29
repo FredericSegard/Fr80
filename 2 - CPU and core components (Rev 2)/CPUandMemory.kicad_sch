@@ -635,89 +635,6 @@
         )
       )
     )
-    (symbol "Device:LED" (pin_numbers hide) (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "D" (at 0 2.54 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Value" "LED" (at 0 -2.54 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "~" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "LED diode" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Light emitting diode" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "LED_0_1"
-        (polyline
-          (pts
-            (xy -1.27 -1.27)
-            (xy -1.27 1.27)
-          )
-          (stroke (width 0.254) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy -1.27 0)
-            (xy 1.27 0)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 1.27 -1.27)
-            (xy 1.27 1.27)
-            (xy -1.27 0)
-            (xy 1.27 -1.27)
-          )
-          (stroke (width 0.254) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy -3.048 -0.762)
-            (xy -4.572 -2.286)
-            (xy -3.81 -2.286)
-            (xy -4.572 -2.286)
-            (xy -4.572 -1.524)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy -1.778 -0.762)
-            (xy -3.302 -2.286)
-            (xy -2.54 -2.286)
-            (xy -3.302 -2.286)
-            (xy -3.302 -1.524)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "LED_1_1"
-        (pin passive line (at -3.81 0 0) (length 2.54)
-          (name "K" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-        (pin passive line (at 3.81 0 180) (length 2.54)
-          (name "A" (effects (font (size 1.27 1.27))))
-          (number "2" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
     (symbol "Device:R_Network08_US" (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
       (property "Reference" "RN" (at -12.7 0 90)
         (effects (font (size 1.27 1.27)))
@@ -949,90 +866,6 @@
         )
       )
     )
-    (symbol "Device:R_US" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-      (property "Reference" "R" (at 2.54 0 90)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Value" "R_US" (at -2.54 0 90)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (at 1.016 -0.254 90)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "~" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "R res resistor" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Resistor, US symbol" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_fp_filters" "R_*" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "R_US_0_1"
-        (polyline
-          (pts
-            (xy 0 -2.286)
-            (xy 0 -2.54)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 2.286)
-            (xy 0 2.54)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 -0.762)
-            (xy 1.016 -1.143)
-            (xy 0 -1.524)
-            (xy -1.016 -1.905)
-            (xy 0 -2.286)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 0.762)
-            (xy 1.016 0.381)
-            (xy 0 0)
-            (xy -1.016 -0.381)
-            (xy 0 -0.762)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 2.286)
-            (xy 1.016 1.905)
-            (xy 0 1.524)
-            (xy -1.016 1.143)
-            (xy 0 0.762)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "R_US_1_1"
-        (pin passive line (at 0 3.81 270) (length 1.27)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-        (pin passive line (at 0 -3.81 90) (length 1.27)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "2" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
     (symbol "GND_1" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (at 0 -6.35 0)
         (effects (font (size 1.27 1.27)) hide)
@@ -1087,12 +920,6 @@
   (junction (at 115.57 100.33) (diameter 0) (color 0 0 0 0)
     (uuid 1dca7adb-dcb4-4a4d-8133-45c55dee458e)
   )
-  (junction (at 127 107.95) (diameter 0) (color 0 0 0 0)
-    (uuid 272a4f05-69e9-4749-af91-cef144a0c487)
-  )
-  (junction (at 180.34 107.95) (diameter 0) (color 0 0 0 0)
-    (uuid 68820d33-473a-465b-b87b-ac2fbc96ae04)
-  )
   (junction (at 115.57 97.79) (diameter 0) (color 0 0 0 0)
     (uuid a471a06f-2804-4212-a1a4-071cffa447cd)
   )
@@ -1111,6 +938,9 @@
   (junction (at 33.02 181.61) (diameter 0) (color 0 0 0 0)
     (uuid ed387e8a-5e75-4426-99fe-66161ea30a80)
   )
+
+  (no_connect (at 246.38 152.4) (uuid 22b79cae-074a-4413-9263-d4d4d30bd3bd))
+  (no_connect (at 246.38 149.86) (uuid b77dda77-42df-4878-9411-577d140e4d56))
 
   (bus_entry (at 83.82 60.96) (size 2.54 -2.54)
     (stroke (width 0) (type default))
@@ -1489,10 +1319,6 @@
     (stroke (width 0) (type default))
     (uuid 30869199-1fb4-414d-9c0d-4bef1564f493)
   )
-  (wire (pts (xy 57.15 151.13) (xy 67.31 151.13))
-    (stroke (width 0) (type default))
-    (uuid 3189d67a-9449-46d3-8c25-2b97ef02b807)
-  )
   (wire (pts (xy 170.18 74.93) (xy 165.1 74.93))
     (stroke (width 0) (type default))
     (uuid 3234983f-2f0d-4059-894b-2ad76aa34f8f)
@@ -1513,10 +1339,6 @@
   (wire (pts (xy 115.57 106.68) (xy 127 106.68))
     (stroke (width 0) (type default))
     (uuid 3677a9c2-bd8e-4dc2-9609-f923b2dfb671)
-  )
-  (wire (pts (xy 67.31 132.08) (xy 67.31 133.35))
-    (stroke (width 0) (type default))
-    (uuid 36bd878e-a787-4904-b4de-4c76e8be9373)
   )
   (wire (pts (xy 21.59 180.34) (xy 21.59 181.61))
     (stroke (width 0) (type default))
@@ -1825,10 +1647,6 @@
     (stroke (width 0) (type default))
     (uuid 9f9bf8c4-0a12-4bf4-9093-bcd18618bdac)
   )
-  (wire (pts (xy 243.84 149.86) (xy 246.38 149.86))
-    (stroke (width 0) (type default))
-    (uuid a6cf4016-e871-4516-80b3-cd46b7c6d2a7)
-  )
   (wire (pts (xy 78.74 50.8) (xy 83.82 50.8))
     (stroke (width 0) (type default))
     (uuid a70d9e01-921c-4e09-a4ab-9085e9d69430)
@@ -1967,10 +1785,6 @@
     (stroke (width 0) (type default))
     (uuid dac0ef42-646f-4b3d-a07a-507f1063edee)
   )
-  (wire (pts (xy 67.31 151.13) (xy 67.31 148.59))
-    (stroke (width 0) (type default))
-    (uuid dd71d819-e706-4e53-9a36-9a98270b26dd)
-  )
   (bus (pts (xy 86.36 96.52) (xy 86.36 99.06))
     (stroke (width 0) (type default))
     (uuid de258b07-ecc1-4e41-a585-d55b5b2f8343)
@@ -2047,10 +1861,6 @@
     (stroke (width 0) (type default))
     (uuid f7c7454e-308b-4050-bedc-509f21599dc1)
   )
-  (wire (pts (xy 243.84 152.4) (xy 246.38 152.4))
-    (stroke (width 0) (type default))
-    (uuid f83fe513-81d2-4999-821d-f07076f22ae9)
-  )
   (bus (pts (xy 86.36 81.28) (xy 86.36 78.74))
     (stroke (width 0) (type default))
     (uuid fab10090-051b-4534-a583-c2d97aaa0a47)
@@ -2073,10 +1883,6 @@
     (uuid ffb541d4-851b-40f9-b1f7-e886bc439130)
   )
 
-  (text "WHITE" (at 74.93 142.24 0)
-    (effects (font (size 1.27 1.27)) (justify right bottom))
-    (uuid 7927a1ba-b2ee-4bca-80cb-7ebb41984822)
-  )
   (text "Bypass Capacitors" (at 24.13 180.34 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 91a20588-e3da-4263-84eb-9e9c11a242eb)
@@ -2325,10 +2131,6 @@
   (label "D4" (at 142.24 64.77 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 627599cf-4a65-4f00-93b6-fe96b07ca520)
-  )
-  (label "~{HALT}" (at 57.15 151.13 0) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 65f64265-1851-4525-a4df-93daaaabed8b)
   )
   (label "A13" (at 165.1 87.63 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
@@ -2678,13 +2480,6 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
-  (global_label "STAT3A" (shape output) (at 243.84 149.86 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right))
-    (uuid 1a29c283-33db-4a4e-9d81-fa7b0e1b19cc)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 234.3234 149.86 0)
-      (effects (font (size 1.27 1.27)) (justify right) hide)
-    )
-  )
   (global_label "~{BUSAK}" (shape output) (at 55.88 99.06 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 32963e9d-37e8-468c-aaba-193a3f5cb047)
@@ -2713,13 +2508,6 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
-  (global_label "SIO2_IEI" (shape input) (at 243.84 154.94 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right))
-    (uuid 4ed4dcad-6c08-4071-ad54-24a393e4b39b)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 233.1743 154.94 0)
-      (effects (font (size 1.27 1.27)) (justify right) hide)
-    )
-  )
   (global_label "~{IORQ}" (shape output) (at 55.88 60.96 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 602e634b-2e5a-4029-9276-9cd184bff7a8)
@@ -2741,10 +2529,10 @@
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
-  (global_label "~{RAMCS1}" (shape input) (at 193.04 82.55 0) (fields_autoplaced)
+  (global_label "~{RAM_CS1}" (shape input) (at 193.04 82.55 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 65884a88-9a69-4a15-91f6-b43fd6521590)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 203.5242 82.55 0)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 204.4918 82.55 0)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
@@ -2783,10 +2571,10 @@
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
-  (global_label "CTC_IEI" (shape input) (at 243.84 152.4 180) (fields_autoplaced)
+  (global_label "CTC_IEI" (shape input) (at 243.84 154.94 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid b7067bb2-a01c-4aa1-b493-c93d63e61ac1)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 234.021 152.4 0)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 234.021 154.94 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
@@ -2804,10 +2592,10 @@
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
-  (global_label "SIO1_IEI" (shape input) (at 243.84 157.48 180) (fields_autoplaced)
+  (global_label "IE" (shape input) (at 243.84 157.48 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid cd736a75-8ad5-4bd4-8279-609de57aa5e2)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 233.1743 157.48 0)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 239.101 157.48 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
@@ -2840,47 +2628,6 @@
     )
   )
 
-  (symbol (lib_name "GND_1") (lib_id "power:GND") (at 127 107.95 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 19ad47e9-e79b-42b4-9c5e-51f57925b270)
-    (property "Reference" "#PWR?" (at 127 114.3 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "GND" (at 127 111.76 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "" (at 127 107.95 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 127 107.95 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid f6657262-ebd2-4a94-94b7-88cd1412cecf))
-    (instances
-      (project "1 - Main CPU board with basic peripherals (rev5)"
-        (path "/144b799e-6064-4d75-b854-e9b611604066/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR?") (unit 1)
-        )
-      )
-      (project "2 - CPU and memory card with the essential peripherals"
-        (path "/86faa30c-e11d-44e5-95c3-00620a8086a9/e15a60e9-aa1a-4c84-9e56-19a44c3e2574"
-          (reference "#PWR?") (unit 1)
-        )
-        (path "/86faa30c-e11d-44e5-95c3-00620a8086a9/e346c6d4-d2d1-4dbe-8fe8-b0fe78243b24"
-          (reference "#PWR?") (unit 1)
-        )
-        (path "/86faa30c-e11d-44e5-95c3-00620a8086a9/c133ae76-381e-42d2-8e9f-762ec0bf4a2b"
-          (reference "#PWR?") (unit 1)
-        )
-      )
-      (project "2 - CPU and core components (Rev 2)"
-        (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR045") (unit 1)
-        )
-      )
-    )
-  )
-
   (symbol (lib_name "+5V_1") (lib_id "power:+5V") (at 180.34 46.99 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2b988826-5f3b-4cb3-9cf6-fa80e2977c38)
@@ -2910,7 +2657,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR047") (unit 1)
+          (reference "#PWR052") (unit 1)
         )
       )
     )
@@ -2951,106 +2698,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR049") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Device:LED") (at 67.31 144.78 270) (mirror x) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 2e85e0da-7d0b-43e2-9060-201e7208b024)
-    (property "Reference" "D?" (at 69.85 146.05 90)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "RX3" (at 69.85 143.51 90)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "LED_THT:LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm_Clear" (at 67.31 144.78 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 67.31 144.78 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 00227461-45c6-4520-85be-b06abe9fe056))
-    (pin "2" (uuid 68f5c6c0-e42b-45a6-957a-0fcb891e7bfd))
-    (instances
-      (project "1 - Main CPU board with basic peripherals (rev5)"
-        (path "/144b799e-6064-4d75-b854-e9b611604066/494e1a83-34fd-4d1b-916c-a62092caa423"
-          (reference "D?") (unit 1)
-        )
-      )
-      (project "1 - Main CPU card with CTC, SIO and PIO"
-        (path "/86faa30c-e11d-44e5-95c3-00620a8086a9/e346c6d4-d2d1-4dbe-8fe8-b0fe78243b24"
-          (reference "D?") (unit 1)
-        )
-        (path "/86faa30c-e11d-44e5-95c3-00620a8086a9/e15a60e9-aa1a-4c84-9e56-19a44c3e2574"
-          (reference "D?") (unit 1)
-        )
-      )
-      (project "0 - Card edge backplane v2"
-        (path "/8a50abe0-5000-47f3-b1a5-f37ea7324f50/7fc482b2-248e-46ca-8eac-60e4e514a973/d13a4bc8-9509-4249-8bd1-ca8c608d3cfd"
-          (reference "D?") (unit 1)
-        )
-      )
-      (project "2 - CPU and core components (Rev 2)"
-        (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/494e1a83-34fd-4d1b-916c-a62092caa423"
-          (reference "D6") (unit 1)
-        )
-        (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/ab28a075-5ed7-4572-87e8-e2dee0232147"
-          (reference "D9") (unit 1)
-        )
-        (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "D10") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_name "+5V_1") (lib_id "power:+5V") (at 67.31 132.08 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 33c18361-c9c0-4f88-9f75-42a31a498710)
-    (property "Reference" "#PWR?" (at 67.31 135.89 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "+5V" (at 67.31 128.27 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "" (at 67.31 132.08 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 67.31 132.08 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid a49520f9-375b-4d42-908f-3f970305f551))
-    (instances
-      (project "1 - Main CPU board with basic peripherals (rev5)"
-        (path "/144b799e-6064-4d75-b854-e9b611604066/494e1a83-34fd-4d1b-916c-a62092caa423"
-          (reference "#PWR?") (unit 1)
-        )
-      )
-      (project "2 - CPU and memory card with the essential peripherals"
-        (path "/86faa30c-e11d-44e5-95c3-00620a8086a9/6cab0c90-5aab-4708-926d-d2186788fb43"
-          (reference "#PWR?") (unit 1)
-        )
-      )
-      (project "3 - Quad Serial card v3"
-        (path "/8a50abe0-5000-47f3-b1a5-f37ea7324f50"
-          (reference "#PWR?") (unit 1)
-        )
-        (path "/8a50abe0-5000-47f3-b1a5-f37ea7324f50/e2b21376-d4be-4dcb-b107-a3c60a0f398e"
-          (reference "#PWR?") (unit 1)
-        )
-      )
-      (project "2 - CPU and core components (Rev 2)"
-        (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/494e1a83-34fd-4d1b-916c-a62092caa423"
-          (reference "#PWR068") (unit 1)
-        )
-        (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/ab28a075-5ed7-4572-87e8-e2dee0232147"
-          (reference "#PWR086") (unit 1)
-        )
-        (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR085") (unit 1)
+          (reference "#PWR054") (unit 1)
         )
       )
     )
@@ -3132,7 +2780,7 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR051") (unit 1)
+          (reference "#PWR055") (unit 1)
         )
       )
     )
@@ -3167,7 +2815,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR041") (unit 1)
+          (reference "#PWR047") (unit 1)
         )
       )
     )
@@ -3213,7 +2861,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR040") (unit 1)
+          (reference "#PWR046") (unit 1)
         )
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/3ba4a3ba-17e5-463e-900f-c6ddaf4560a4"
           (reference "#PWR?") (unit 1)
@@ -3263,7 +2911,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "C11") (unit 1)
+          (reference "C12") (unit 1)
         )
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/3ba4a3ba-17e5-463e-900f-c6ddaf4560a4"
           (reference "C?") (unit 1)
@@ -3307,57 +2955,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR042") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Device:R_US") (at 67.31 137.16 0) (mirror x) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 5c4ab3cd-46fe-47b6-8172-cb18b811bbec)
-    (property "Reference" "R?" (at 69.85 138.43 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "3K3" (at 69.85 135.89 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 68.326 136.906 90)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 67.31 137.16 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid e67189bb-76ce-48ab-847b-e7b4bad2687b))
-    (pin "2" (uuid 35d20c58-51bd-4a26-a5a8-7402b8df645c))
-    (instances
-      (project "1 - Main CPU board with basic peripherals (rev5)"
-        (path "/144b799e-6064-4d75-b854-e9b611604066/494e1a83-34fd-4d1b-916c-a62092caa423"
-          (reference "R?") (unit 1)
-        )
-      )
-      (project "1 - Main CPU card with CTC, SIO and PIO"
-        (path "/86faa30c-e11d-44e5-95c3-00620a8086a9/e346c6d4-d2d1-4dbe-8fe8-b0fe78243b24"
-          (reference "R?") (unit 1)
-        )
-        (path "/86faa30c-e11d-44e5-95c3-00620a8086a9/e15a60e9-aa1a-4c84-9e56-19a44c3e2574"
-          (reference "R?") (unit 1)
-        )
-      )
-      (project "0 - Card edge backplane v2"
-        (path "/8a50abe0-5000-47f3-b1a5-f37ea7324f50/7fc482b2-248e-46ca-8eac-60e4e514a973/d13a4bc8-9509-4249-8bd1-ca8c608d3cfd"
-          (reference "R?") (unit 1)
-        )
-      )
-      (project "2 - CPU and core components (Rev 2)"
-        (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/494e1a83-34fd-4d1b-916c-a62092caa423"
-          (reference "R6") (unit 1)
-        )
-        (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/ab28a075-5ed7-4572-87e8-e2dee0232147"
-          (reference "R9") (unit 1)
-        )
-        (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "R7") (unit 1)
+          (reference "#PWR048") (unit 1)
         )
       )
     )
@@ -3472,7 +3070,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "U10") (unit 1)
+          (reference "U12") (unit 1)
         )
       )
     )
@@ -3551,7 +3149,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "U8") (unit 1)
+          (reference "U10") (unit 1)
         )
       )
     )
@@ -3586,48 +3184,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR043") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_name "GND_1") (lib_id "power:GND") (at 180.34 107.95 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 96b05155-b2b6-404b-a3db-fa84e366c663)
-    (property "Reference" "#PWR?" (at 180.34 114.3 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "GND" (at 180.34 111.76 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "" (at 180.34 107.95 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 180.34 107.95 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid f17af66f-0f4b-43b9-ba8f-d89dc216ae1d))
-    (instances
-      (project "1 - Main CPU board with basic peripherals (rev5)"
-        (path "/144b799e-6064-4d75-b854-e9b611604066/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR?") (unit 1)
-        )
-      )
-      (project "2 - CPU and memory card with the essential peripherals"
-        (path "/86faa30c-e11d-44e5-95c3-00620a8086a9/e15a60e9-aa1a-4c84-9e56-19a44c3e2574"
-          (reference "#PWR?") (unit 1)
-        )
-        (path "/86faa30c-e11d-44e5-95c3-00620a8086a9/e346c6d4-d2d1-4dbe-8fe8-b0fe78243b24"
-          (reference "#PWR?") (unit 1)
-        )
-        (path "/86faa30c-e11d-44e5-95c3-00620a8086a9/c133ae76-381e-42d2-8e9f-762ec0bf4a2b"
-          (reference "#PWR?") (unit 1)
-        )
-      )
-      (project "2 - CPU and core components (Rev 2)"
-        (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR050") (unit 1)
+          (reference "#PWR049") (unit 1)
         )
       )
     )
@@ -3698,7 +3255,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "U9") (unit 1)
+          (reference "U11") (unit 1)
         )
       )
     )
@@ -3733,7 +3290,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR044") (unit 1)
+          (reference "#PWR050") (unit 1)
         )
       )
     )
@@ -3774,7 +3331,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR046") (unit 1)
+          (reference "#PWR051") (unit 1)
         )
       )
     )
@@ -3820,7 +3377,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR039") (unit 1)
+          (reference "#PWR045") (unit 1)
         )
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/3ba4a3ba-17e5-463e-900f-c6ddaf4560a4"
           (reference "#PWR?") (unit 1)
@@ -3870,7 +3427,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "C10") (unit 1)
+          (reference "C11") (unit 1)
         )
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/3ba4a3ba-17e5-463e-900f-c6ddaf4560a4"
           (reference "C?") (unit 1)
@@ -3908,7 +3465,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "#PWR048") (unit 1)
+          (reference "#PWR053") (unit 1)
         )
       )
     )
@@ -3955,7 +3512,7 @@
       )
       (project "2 - CPU and core components (Rev 2)"
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/7e0ec4e3-63df-4476-8e32-8f37c96d34d1"
-          (reference "C12") (unit 1)
+          (reference "C13") (unit 1)
         )
         (path "/fc5c05aa-044e-4225-a29e-03b20eedf682/3ba4a3ba-17e5-463e-900f-c6ddaf4560a4"
           (reference "C?") (unit 1)
