@@ -2,7 +2,15 @@
 
   (uuid ec7eb1cf-2bdf-4f91-9df4-04951ded83a0)
 
-  (paper "A4")
+  (paper "USLetter")
+
+  (title_block
+    (date "2023-08-29")
+    (rev "2")
+    (company "Frédéric Segard")
+    (comment 1 "@microhobbyist")
+    (comment 4 "Thank you to John Winans for his inspiration, as well as Grant Searle and Sergey Kiselev")
+  )
 
   (lib_symbols
     (symbol "+5V_1" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
