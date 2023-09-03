@@ -1,0 +1,50 @@
+Name      CPU_card_main_glue_logic ;
+PartNo    ATF22V10C ;
+Date      1/9/2023 ;
+Revision  2.1 ;
+Designer  Frederic Segard ;
+Company   @microhobbyist ;
+Assembly  None ;
+Location  ;
+Device    g22v10 ;
+
+/* *************** INPUT PINS *****************************/
+PIN 1   = BUSAK    ; /* Reset (int. SR R)                 */
+PIN 2   = MREQ     ; /* Memory request                    */
+PIN 3   = IORQ     ; /* I/O request                       */
+PIN 4   = M1       ; /* M1 cycle                          */
+PIN 5   = WR       ; /* Write                             */
+PIN 6   = RD       ; /* Read                              */
+PIN 7   = A3       ; /* Address line                      */
+PIN 8   = A4       ; /* Address line                      */
+PIN 9   = A5       ; /* Address line                      */
+PIN 10  = A6       ; /* Address line                      */
+PIN 11  = A7       ; /* Address line                      */
+PIN 13  = A15      ; /* Address line                      */
+PIN 14  = BA19     ; /* Latched Bank RAM CS               */
+
+/* *************** OUTPUT PINS ****************************/
+PIN 15  = DIR      ; /* Data direction of 74LS245 buffer  */
+PIN 16  = RAMCS2   ;
+PIN 17  = RAMCS1   ;
+PIN 18  = MODE1    ; /* Read interrut priority encoder    */
+PIN 19  = BANKRD   ; /* Read BANK register (also ROM_DIS) */
+PIN 20  = BANKWR   ; /* Write BANK register               */
+PIN 21  = CTCCS    ; /* CTC chip select                   */
+PIN 22  = SIO2CS   ; /* SIO chip select                   */
+PIN 23  = SIO1CS   ; /* SIO chip select                   */
+
+/* *************** EQUATIONS ******************************/
+FIELD ADDRESS = [A7..3] ;
+
+!SIO1CS =  ADDRESS:[00..07] & M1 & !IORQ ;
+!SIO2CS =  ADDRESS:[08..0F] & M1 & !IORQ ;
+!CTCCS  =  ADDRESS:[20..27] & M1 & !IORQ ;
+ BANKWR =  ADDRESS:[30..37] & M1 & !IORQ & !WR ;
+!BANKRD =  ADDRESS:[30..37] & M1 & !IORQ & !RD ;
+!MODE1  =  ADDRESS:[38..3F] & M1 & !IORQ & !RD ; /* Also ROM disable */
+
+RAMCS1  =  (!A15 & BA19) # MREQ ;
+RAMCS2  =  !BA19 # A15 # MREQ ;
+
+DIR     =  ( ((MREQ & (!IORQ & M1 & ADDRESS:[00..3F])) # RD ) & !( RD & M1 & BUSAK) ) ;
