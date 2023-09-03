@@ -69,7 +69,7 @@ ListOfCommands:
 	db		"- PEEK PP: Read a byte from I/O port",CR,LF
 	db		"- POKE PP BB: Write a byte to I/O port",CR,LF
 	db		"- REG: Z80 registers",CR,LF
-	db		"- RUN [AAAA]: Esecute a program",CR,LF
+	db		"- RUN [AAAA]: Execute a program",CR,LF
 	db		"- SYSINFO: System information",CR,LF
 	db		"- WRITE AAAA BB [BB]...: Write to RAM",CR,LF
 	db		"- ZERO: Zero free RAM, banks included",CR,LF
