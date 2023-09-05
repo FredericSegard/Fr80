@@ -1,0 +1,84 @@
+%SIGNAL
+PIN   7 =  BUSAK 
+PIN  19 =  DIR 
+PIN   2 =  IORQ 
+PIN  11 =  IOSEL 
+PIN   5 =  IRQ0 
+PIN   6 =  IRQ1 
+PIN   3 =  M1 
+PIN  13 =  MODE2 
+PIN   1 =  MREQ 
+PIN  12 =  NOTBUSAK 
+PIN  17 =  RAMOE 
+PIN  15 =  RAMSEL 
+PIN   4 =  RD 
+PIN   8 =  RESET 
+PIN  18 =  ROMCS 
+PIN   9 =  ROMDIS 
+PIN  16 =  ROMSEL 
+PIN  14 =  TERM 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+DIR =>
+    BUSAK & RD & TERM
+  # BUSAK & !IOSEL & TERM
+  # BUSAK & !ROMCS & TERM
+  # !IOSEL & !RD & TERM
+  # !RD & !ROMCS & TERM
+
+MODE2 =>
+    IORQ
+  # M1
+
+NOTBUSAK =>
+    !BUSAK
+
+RAMOE =>
+    RAMSEL
+  # RD
+
+RAMSEL =>
+    RESET & ROMSEL
+
+ROMCS =>
+    ROMSEL
+  # MREQ
+
+ROMSEL =>
+    RAMSEL & ROMDIS
+
+TERM =>
+    IORQ
+  # M1
+  # !IRQ0
+  # !IRQ1
+
+DIR.oe  =>
+    1 
+
+MODE2.oe  =>
+    1 
+
+NOTBUSAK.oe  =>
+    1 
+
+RAMOE.oe  =>
+    1 
+
+RAMSEL.oe  =>
+    1 
+
+ROMCS.oe  =>
+    1 
+
+ROMSEL.oe  =>
+    1 
+
+TERM.oe  =>
+    1 
+
+%END

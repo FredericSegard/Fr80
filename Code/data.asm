@@ -31,6 +31,8 @@ CommandList:						; Commands must be in uppercase, and the jp opcode also acts a
 ;	jp		FORTH					;
 	db		"DUMP"					; Hex dump command
 	jp		HexDump					;
+	db		"HALT"					; Halt the CPU
+	jp		HaltCmd
 	db		"LIST"					; List of commands
 	jp		ListCmd					;
 	db		"LOAD"					; Intel Hex load command
