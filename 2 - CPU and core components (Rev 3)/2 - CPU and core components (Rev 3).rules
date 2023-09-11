@@ -1,0 +1,134 @@
+
+(rules PCB 2 - CPU and core components (Rev 2)
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 14631)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.6)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.6)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_1000:500_um"
+    (shape
+      (circle F.Cu 1000.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1000.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_1000:500_um" "Via[0-1]_1000:500_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_1000:500_um-kicad_default" "Via[0-1]_1000:500_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-Power" "Via[0-1]_800:400_um" Power
+  )
+  (via 
+    "Via[0-1]_1000:500_um-Power" "Via[0-1]_1000:500_um" Power
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (via_rule
+    Power "Via[0-1]_1000:500_um-Power"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    /Blinkenlights/INT "Net-(D3-K)" "Net-(D4-K)" "Net-(D5-K)" "Net-(D6-K)" D7 D6 D5
+    D4 D3 /MOSI /MISO /SCLK /SDA /SCL D2
+    D1 D0 A15 A14 A13 A12 A11 A10
+    A9 A8 A7 A6 A5 A4 A3 A2
+    A1 +3V3 A0 "-12V" ~{RESET} +12V ~{IRQ}2 ~{M1}
+    CLK2 ~{MREQ} ~{IORQ} ~{WR} ~{RD} ~{BUSRQ} ~{BUSAK} ~{WAIT}
+    ~{HALT} ~{RFSH} CLK ~{IRQ}7 ~{IRQ}6 ~{IRQ}5 ~{IRQ}4 ~{IRQ}3
+    ~{NMI} "unconnected-(J4-VBUS-Pad1)" CTCLK1 ~{CLK} /TX2 BA22 BA21 BA20
+    BA19 BA18 BA17 BA16 BA15 /RX2 /D8 /D9
+    /D10 /D11 /D12 /D13 /D14 /D15 ~{IRQ}8 ~{IRQ}9
+    ~{IRQ}10 ~{IRQ}11 ~{IRQ}12 ~{IRQ}13 ~{IRQ}14 ~{IRQ}15 /USR1 /USR2
+    /USR3 /USR4 /USR5 /USR6 /USR7 /Blinkenlights/NMI ~{IRQ}0 ~{IRQ}1
+    "CTC_IEI" ~{INT} /Blinkenlights/BUSRQ /Blinkenlights/BUSAK "~{ROM_CS}" /Blinkenlights/WAIT "~{RAM_OE}" "~{CTC_CS}"
+    /Blinkenlights/HALT "/Blinkenlights/ROM_CS" /Blinkenlights/RESET "Net-(RN5-R8)" "Net-(RN5-R7)" "Net-(RN5-R6)" "Net-(RN5-R5)" "Net-(RN5-R4)"
+    "Net-(RN5-R3)" "Net-(RN5-R2)" "Net-(RN5-R1)" "Net-(U15-VUSB)" "Net-(U16-VUSB)" "Net-(D7-K)" "Net-(D8-K)" ~{MODE1}
+    "/Glue Logic/~{MODE0{slash}2}" IE "Net-(D1-K)" "R_FTRA" "Net-(D2-K)" "R_FTRB" "Net-(D3-A)" "Net-(D4-A)"
+    "Net-(D5-A)" "Net-(D6-A)" "/Glue Logic/~{ROM_SEL}" "/Glue Logic/~{RAM_SEL}" "Net-(D7-A)" "Net-(D8-A)" CTCLK0 "Net-(U2A-C)"
+    "Net-(U2B-D)" "Net-(U2B-C)" "Net-(U7-Q2)" "Net-(U7-Q3)" /TX /RX "unconnected-(U4-I{slash}O-Pad18)" "Net-(U6-D4)"
+    "Net-(J1-Pin_2)" "Net-(U6-D3)" "Net-(J3-Pin_2)" "unconnected-(J5-VBUS-Pad1)" "Net-(U6-D2)" "Net-(U6-D1)" "Net-(U14-~{DTRA})" "~{BANK_RD}"
+    "~{BANK_WR}" "~{SIO_CS}" "Net-(U7-Q0)" "Net-(U7-Q1)" "unconnected-(U8-Pad8)" "unconnected-(U11-NC-Pad1)" "unconnected-(U11-NC-Pad30)" "Net-(U13-CLK{slash}TRG3)"
+    "unconnected-(U13-IEO-Pad11)" "unconnected-(U14-~{W{slash}RDYA}-Pad10)" "unconnected-(U14-~{SYNCA}-Pad11)" "Net-(U14-RxDA)" "Net-(U14-TxDA)" "Net-(U14-~{DTRB})" "unconnected-(U14-~{RTSA}-Pad17)" "unconnected-(U14-~{RTSB}-Pad24)"
+    "~{RAM_CS}" "Net-(U14-TxDB)" "Net-(U14-RxDB)" "unconnected-(U14-~{SYNCB}-Pad29)" "unconnected-(U14-~{W{slash}RDYB}-Pad30)" "unconnected-(U15-~{RESET}-Pad4)" "unconnected-(U15-GP3_(I2C)-Pad8)" "unconnected-(U15-SDA-Pad9)"
+    "unconnected-(U15-SCL-Pad10)" "unconnected-(U16-~{RESET}-Pad4)" "unconnected-(U16-GP3_(I2C)-Pad8)" "unconnected-(U16-SDA-Pad9)" "unconnected-(U16-SCL-Pad10)" "unconnected-(U5-I{slash}O-Pad17)" "/SIO/D1-" /SIO/D1+
+    "/SIO/D2-" /SIO/D2+
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Power
+    +5V GND
+    (clearance_class Power)
+    (via_rule Power)
+    (rule
+      (width 500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

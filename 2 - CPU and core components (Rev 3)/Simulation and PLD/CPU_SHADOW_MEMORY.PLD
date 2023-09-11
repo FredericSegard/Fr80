@@ -1,0 +1,38 @@
+Name      CPU_Shadow_Memory ;
+PartNo    ATF16V8B ;
+Date      6/9/2023 ;
+Revision  2.13 ;
+Designer  Frederic Segard ;
+Company   @microhobbyist ;
+Assembly  ;
+Location  U? ;
+Device    g16v8 ;
+
+/* *************** INPUT PINS *****************************/
+PIN 1   = MREQ     ; /* Memory Request                    */
+PIN 2   = RD       ; /* Read                              */
+PIN 3   = RESET    ; /* Disable's RAMOE                   */
+PIN 4   = ROMDIS   ; /* Disable's ROMCS                   */
+PIN 5   = A15      ; /* High RAM address                  */
+PIN 6   = BA19     ; /* Bank chip select                  */
+PIN 7   = BA20     ; /* Bank chip select                  */
+PIN 8   = BA21     ; /* Bank chip select                  */
+PIN 9   = BA22     ; /* Bank chip select                  */
+
+/* *************** OUTPUT PINS ****************************/
+PIN 14  = Q        ; /* Internal SR result (NC)           */
+PIN 15  = NQ       ; /* Internal SR result (NC)           */
+PIN 16  = RAM2CS   ; /* Chip select on RAM socket 2       */
+PIN 17  = RAM1CS   ; /* Chip select on RAM socket 1       */
+PIN 18  = RAMOE    ; /* RAM Output Enable                 */
+PIN 19  = ROMCS    ; /* Flash chip select                 */
+
+/* *************** EQUATIONS ******************************/
+Q  = (RESET & !NQ) # (!ROMDIS & Q) ;
+NQ = (!RESET & NQ) # (ROMDIS & !Q) ;
+
+ROMCS   = Q  # MREQ ;
+RAMOE   = NQ # RD ;
+
+RAM1CS  = (BA19 & !A15) # (BA20 & !A15) # (BA21 & !A15) # (BA22 & !A15) # MREQ ;
+RAM2CS  = !BA19 # BA20 # BA21 # BA22 # A15 # MREQ ;

@@ -1,0 +1,72 @@
+%SIGNAL
+PIN   5 =  A15 
+PIN   6 =  BA19 
+PIN   7 =  BA20 
+PIN   8 =  BA21 
+PIN   9 =  BA22 
+PIN   1 =  MREQ 
+PIN  15 =  NQ 
+PIN  14 =  Q 
+PIN  17 =  RAM1CS 
+PIN  16 =  RAM2CS 
+PIN  18 =  RAMOE 
+PIN   2 =  RD 
+PIN   3 =  RESET 
+PIN  19 =  ROMCS 
+PIN   4 =  ROMDIS 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+NQ =>
+    NQ & !RESET
+  # !Q & ROMDIS
+
+Q =>
+    !NQ & RESET
+  # Q & !ROMDIS
+
+RAM1CS =>
+    !A15 & BA19
+  # !A15 & BA20
+  # !A15 & BA21
+  # !A15 & BA22
+  # MREQ
+
+RAM2CS =>
+    !BA19
+  # BA20
+  # BA21
+  # BA22
+  # A15
+  # MREQ
+
+RAMOE =>
+    NQ
+  # RD
+
+ROMCS =>
+    Q
+  # MREQ
+
+NQ.oe  =>
+    1 
+
+Q.oe  =>
+    1 
+
+RAM1CS.oe  =>
+    1 
+
+RAM2CS.oe  =>
+    1 
+
+RAMOE.oe  =>
+    1 
+
+ROMCS.oe  =>
+    1 
+
+%END

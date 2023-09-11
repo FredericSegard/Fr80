@@ -1,0 +1,43 @@
+Name      CPU_IO_Glue_Logic ;
+PartNo    ATF16V8B ;
+Date      7/9/2023 ;
+Revision  2.21 ;
+Designer  Frederic Segard ;
+Company   @microhobbyist ;
+Assembly  None ;
+Location  U? ;
+Device    g16v8 ;
+
+/* *************** INPUT PINS *****************************/
+PIN 1   = IORQ     ; /* I/O request                       */
+PIN 2   = M1       ; /* M1 cycle                          */
+PIN 3   = WR       ; /* Write                             */
+PIN 4   = RD       ; /* Read                              */
+PIN 5   = A2       ; /* Address line                      */
+PIN 6   = A3       ; /* Address line                      */
+PIN 7   = A4       ; /* Address line                      */
+PIN 8   = A5       ; /* Address line                      */
+PIN 9   = A6       ; /* Address line                      */
+PIN 11  = A7       ; /* Address line                      */
+
+/* *************** OUTPUT PINS ****************************/
+PIN 12  = MODE2    ; /* Mode 2 interrupt OE               */
+PIN 13  = MODE1    ; /* Mode 1 interrupt OE (ROMDIS)      */
+PIN 14  = BANKRD   ; /* Read BANK register                */
+PIN 15  = BANKWR   ; /* Write BANK register               */
+PIN 16  = KEYRD    ; /* Matrix keyboard, or GP input      */
+PIN 17  = KEYWR    ; /* Matrix keyboard, or GP output     */
+PIN 18  = CTCCS    ; /* CTC chip select                   */
+PIN 19  = SIOCS    ; /* SIO chip select                   */
+
+/* *************** EQUATIONS ******************************/
+FIELD ADDRESS = [A7..A2] ;
+
+SIOCS  =  !(ADDRESS:[00..03] & M1 & !IORQ) ;
+CTCCS  =  !(ADDRESS:[08..0B] & M1 & !IORQ) ;
+KEYWR  =  !(ADDRESS:[0C..0F] & M1 & !IORQ & !WR) ;
+KEYRD  =  !(ADDRESS:[0C..0F] & M1 & !IORQ & !RD) ;
+MODE1  =  !(ADDRESS:[18..1B] & M1 & !IORQ & !RD) ;
+BANKWR =  !(ADDRESS:[1C..1F] & M1 & !IORQ & !WR) ;
+BANKRD =  !(ADDRESS:[1C..1F] & M1 & !IORQ & !RD) ;
+MODE2  =  IORQ # M1 ;

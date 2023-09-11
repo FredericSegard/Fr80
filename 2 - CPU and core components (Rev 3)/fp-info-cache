@@ -1,0 +1,330 @@
+78872039734088
+0_Library
+8_Segment_Bar_graph
+
+Display
+0
+16
+16
+0_Library
+10_Segment_Bar_graph
+DC10SRWA
+Display
+0
+20
+20
+0_Library
+100x100 dev board with a 40-pin header.
+Standard 100mm² board size with a 2x32 integrated header
+
+0
+40
+40
+0_Library
+100x100 dev board with a 64-pin header.
+Standard 100mm² board size with a 2x32 integrated header
+
+0
+69
+65
+0_Library
+1458C4B_Hamnmond
+
+
+0
+4
+1
+0_Library
+1598ESGYPBK_Hammond
+
+
+0
+72
+69
+0_Library
+18877_Housing
+ABS housing (Jameco #18877) (Manufacturer #203-115B)
+
+0
+0
+0
+0_Library
+ATX_Backplane
+ATX form factor with 8 bit - marked for ISA card edge slots
+
+0
+0
+0
+0_Library
+ATX_PSU_CONN
+1-1775099-3
+Connector
+0
+24
+24
+0_Library
+Arduino_Mega2560_Shield
+https://store.arduino.cc/arduino-mega-2560-rev3
+
+0
+92
+91
+0_Library
+Arduino_Uno_Shield
+https://store.arduino.cc/arduino-uno-rev3
+
+0
+38
+37
+0_Library
+BAR_GRAPH_8
+8-Element Bar Graph Array
+8-Element Bar Graph Array
+0
+16
+16
+0_Library
+BUS_AT
+16-bits ISA Card Edge PCB Bus
+BUS ISA AT CARD EDGE 16-bit IBM PC AT
+0
+99
+99
+0_Library
+BUS_AT v2
+16-bits ISA Card Edge PCB Bus
+BUS ISA AT CARD EDGE 16-bit IBM PC AT
+0
+98
+98
+0_Library
+BUS_XT
+8-bits ISA Card Edge PCB Bus
+BUS CARD EDGE 8-bit IBM PC XT
+0
+63
+63
+0_Library
+BUS_XT v2
+8-bits ISA Card Edge PCB Bus
+BUS CARD EDGE 8-bit IBM PC XT
+0
+62
+62
+0_Library
+BUS_XT_Proto
+100mm² 8-bit ISA Bus Edge Connector
+BUS ISA XT Edge connector 62
+0
+62
+62
+0_Library
+Barrel_Jack_5.5mmODx2.1mmID_PJ-202A
+
+
+0
+3
+3
+0_Library
+DIP 64 1.778 pitch
+
+
+0
+64
+64
+0_Library
+DIP-8-4_W7.62mm_Oscillator_Socket
+4-lead though-hole mounted DIP package, row spacing 7.62 mm (300 mils), Socket for Oscillator
+THT DIP DIL PDIP 2.54mm 7.62mm 300mil Socket
+0
+4
+4
+0_Library
+Heatsink_TO220_Horizontal
+Heatsink TO-220 Horizontal
+Heatsink TO-220 Horizontal 
+0
+1
+1
+0_Library
+ISA_Connector
+6-5530843-5-1
+Connector
+0
+62
+62
+0_Library
+ISA_Connector_98
+5645169-3-2
+Connector
+0
+98
+98
+0_Library
+JLCPCB Logo
+
+
+0
+0
+0
+0_Library
+JLCPCB Logo 2
+
+
+0
+0
+0
+0_Library
+JLCPCB Logo 3
+
+
+0
+0
+0
+0_Library
+MicroHobbyist
+
+
+0
+0
+0
+0_Library
+Microswitch_2.54mm_spacing
+
+
+0
+3
+3
+0_Library
+Microswitch_3mm_spacing
+
+
+0
+3
+3
+0_Library
+Microswitch_4.7mm_spacing
+
+
+0
+3
+3
+0_Library
+Mini-DIN_6p
+5749266-1-2 (PS/2 connector)
+PS2 PS/2 Connector
+0
+9
+7
+0_Library
+MountingHole_M3.96_Pad_Via_ATX
+Mounting Hole 4mm, M4
+mounting hole 4mm m4 3.96
+0
+9
+1
+0_Library
+NES_Connector
+
+
+0
+9
+7
+0_Library
+PinHeader_1x2_Vertical (Modified)
+Through hole straight pin header, 1x02, 2.54mm pitch, single row (Narrower pads)
+Through hole pin header THT 1x02 2.54mm single row
+0
+2
+2
+0_Library
+PinHeader_2x2_Vertical (Modified)
+Through hole straight pin header, 2x02, 2.54mm pitch, double rows (Narrower pads)
+Through hole pin header THT 2x02 2.54mm double row
+0
+4
+4
+0_Library
+Pushbutton_12mm_LED
+Like a standard 12mm switch, but with integrated LED
+tact sw push 12mm LED
+0
+6
+4
+0_Library
+RCAJackCUI
+
+
+0
+2
+2
+0_Library
+SPDT_NKK_SWITCH_M2012S2A2W30
+M2012S2A2W30-1
+Switch
+0
+5
+5
+0_Library
+SW_Cherry_MX_1.00u_PCB
+Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf
+Cherry MX keyswitch 1.00u PCB
+0
+2
+2
+0_Library
+SW_Cherry_MX_1.25u_PCB
+Cherry MX keyswitch, 1.25u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf
+Cherry MX keyswitch 1.25u PCB
+0
+2
+2
+0_Library
+SW_Cherry_MX_1.50u_PCB
+Cherry MX keyswitch, 1.50u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf
+Cherry MX keyswitch 1.50u PCB
+0
+2
+2
+0_Library
+SW_Cherry_MX_1.75u_PCB
+Cherry MX keyswitch, 1.75u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf
+Cherry MX keyswitch 1.75u PCB
+0
+2
+2
+0_Library
+SW_Cherry_MX_2.00u_PCB
+Cherry MX keyswitch, 2.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf
+Cherry MX keyswitch 2.00u PCB
+0
+2
+2
+0_Library
+SW_Cherry_MX_2.25u_PCB
+Cherry MX keyswitch, 2.25u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf
+Cherry MX keyswitch 2.25u PCB
+0
+2
+2
+0_Library
+SW_Cherry_MX_2.75u_PCB
+Cherry MX keyswitch, 2.75u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf
+Cherry MX keyswitch 2.75u PCB
+0
+2
+2
+0_Library
+SW_Cherry_MX_6.25u_PCB
+Cherry MX keyswitch, 6.25u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf
+Cherry MX keyswitch 6.25u PCB
+0
+2
+2
+0_Library
+ZIF_Socket-32
+3M_232-1285-00-0602J
+THT DIP DIL ZIF 15.24mm 600mil Socket
+0
+32
+32
