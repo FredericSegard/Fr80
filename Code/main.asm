@@ -307,7 +307,7 @@ EndAddress:			ds	2			; Original end or destination address
 StartAddressAlt:	ds	2			; Original start or source address
 EndAddressAlt: 		ds	2			; Original end or destination address
 ByteTransfer:		ds	1			; Byte to copy/transfer
-UserCodeSize		ds	2			; Size of uploaded user code 
+UserCodeSize:		ds	2			; Size of uploaded user code
 
 EndOfCode:
 	ds	VectorTable-$,$FF			; Fill gap with $FF to optimize speed when programming the FLASH/EEPROM
