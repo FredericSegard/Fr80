@@ -1,6 +1,6 @@
 ParsedWord:		equ		$7E00			; Memory location to store parsed word
 InputWord: 		equ 	ParsedWord		; Assuming a word has already been parsed
-WordExecAddr	equ		$7D00			; Adjust this address as neeed
+FoundWordExecAddr	equ		$7D00			; Adjust this address as neeed
 
 ; Data stack (assuming stack starts at memory address 0x7F00)
 DataStack		equ		$7F00
@@ -90,29 +90,36 @@ FindWordLoop:
 ; Execution address is in DE
 
 WordFound:
-	ld		(WordExecAddr),DE	; Store the execution address in memory for execution
-	call	ExecuteWordFound	; Execute the found word
+	ld		(FoundWordExecAddr),DE	; Store the execution address in memory for execution
+	call	ExecuteWordFound		; Execute the found word
 	ret
 
 
 ; Function to execute the found word
 ; ----------------------------------
 
-EXECUTE_FOUND_WORD:
+ExecuteFoundWord:
     ; Load the execution address of the found word
-    LD DE, (WordExecAddr)
+	ld		DE,(FoundWordExecAddr)
 
     ; Perform the word's execution based on the address in DE
     ; Implement the behavior of the found word here
     ; You'll need to set up a proper execution mechanism based on your Forth interpreter's design
 
-    RET
+	call	DE
+	
+	ret
 
 
-WORD_NOT_FOUND:
+WordNotFound:
 	; The word is not found in the dictionary
 	; Handle the error or return accordingly
-	RET
+	push	HL
+	ld		HL,WordNotFoundMsg
+	call	PrintString
+	pop		HL
+	ret
+
 
 ; Function to compare two null-terminated strings
 ; DE: Pointer to the first string
@@ -384,3 +391,6 @@ ForthDictionary:
 	DB	FW_SWAP,	4, "SWAP", 0
 	DB	DW_WORDS,	5, "WORDS", 0
 	DB EOT
+
+WordNotFoundMsg:
+	DB	"Word not found!",0

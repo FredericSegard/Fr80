@@ -1,0 +1,137 @@
+
+(rules PCB 2 - CPU and core components (Rev 2
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 4195)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.9)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.5)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_1000:500_um"
+    (shape
+      (circle F.Cu 1000.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1000.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_1000:500_um" "Via[0-1]_1000:500_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_1000:500_um-kicad_default" "Via[0-1]_1000:500_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-Power" "Via[0-1]_800:400_um" Power
+  )
+  (via 
+    "Via[0-1]_1000:500_um-Power" "Via[0-1]_1000:500_um" Power
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (via_rule
+    Power "Via[0-1]_1000:500_um-Power"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "Net-(D3-K)" "Net-(D4-K)" "Net-(D5-K)" "Net-(D6-K)" D7 D6 D5 D4
+    D3 /MOSI /MISO /SCLK /SDA /SCL D2 D1
+    D0 A15 A14 A13 A12 A11 A10 A9
+    A8 A7 A6 A5 A4 A3 A2 A1
+    +3V3 A0 "-12V" ~{RESET} +12V ~{IRQ}2 ~{M1} CLK2
+    ~{MREQ} ~{IORQ} ~{WR} ~{RD} ~{BUSRQ} ~{BUSAK} ~{WAIT} ~{HALT}
+    CLK ~{IRQ}7 ~{IRQ}6 ~{IRQ}5 ~{IRQ}4 ~{IRQ}3 ~{NMI} "unconnected-(J4-VBUS-Pad1)"
+    CTCLK1 ~{CLK} /TX2 BA18 BA17 BA16 BA15 /RX2
+    /D8 /D9 /D10 /D11 /D12 /D13 /D14 /D15
+    ~{IRQ}8 ~{IRQ}9 ~{IRQ}10 ~{IRQ}11 ~{IRQ}12 ~{IRQ}13 ~{IRQ}14 ~{IRQ}15
+    /USR1 /USR2 /USR3 /USR4 /USR5 /USR6 /USR7 ~{IRQ}0
+    ~{IRQ}1 "CTC_IEI" ~{INT} "~{ROM_CS}" "~{RAM_OE}" "~{CTC_CS}" "Net-(D7-K)" ~{MODE1}
+    "Net-(D1-K)" "Net-(D1-A)" "Net-(D2-K)" "Net-(D2-A)" "Net-(D3-A)" "Net-(D4-A)" "Net-(D5-A)" "Net-(D6-A)"
+    "/Glue Logic/~{ROM_SEL}" "/Glue Logic/~{RAM_SEL}" "Net-(D7-A)" /TX /RX "~{BANK_RD}" "~{SIO_CS}" "/SIO/D1-"
+    /SIO/D1+ "/SIO/D2-" /SIO/D2+ /IEO "Net-(D9-K)" "Net-(D10-K)" "Net-(D11-K)" "Net-(D13-K)"
+    "Net-(U19-VUSB)" "Net-(U20-VUSB)" "Net-(D8-K)" "BUS_IEI" CTCLK2 RBA22 RBA21 "Net-(J2-Pin_2)"
+    RBA20 RBA19 RBA18 RBA17 RBA16 RBA15 ~{MODE2} "unconnected-(J3-VBUS-Pad1)"
+    "Net-(J5-Pin_2)" "Net-(D12-K)" BUSAK RD "unconnected-(U4-I{slash}O-Pad16)" "/CPU and Buffers/AA15" "/CPU and Buffers/AA14" "/CPU and Buffers/AA13"
+    "/CPU and Buffers/AA12" "/CPU and Buffers/AA11" "/CPU and Buffers/AA10" "/CPU and Buffers/AA9" "/CPU and Buffers/AA8" "/CPU and Buffers/DD4" "/CPU and Buffers/DD3" "Net-(U1A-C)"
+    "Net-(U1B-D)" "Net-(U1B-C)" "/CPU and Buffers/DD5" "/CPU and Buffers/DD6" "~{RAM2_CS}" "~{RAM1_CS}" "~{BANK_WR}" "/CPU and Buffers/DD2"
+    "/CPU and Buffers/DD7" "unconnected-(U8-I{slash}O-Pad18)" "Net-(U9-D4)" "Net-(U9-D3)" "Net-(U9-D2)" "Net-(U9-D1)" "/CPU and Buffers/DD0" "/CPU and Buffers/DD1"
+    "/CPU and Buffers/~{CMREQ}" "/CPU and Buffers/~{CIORQ}" "/CPU and Buffers/~{CRD}" "/CPU and Buffers/~{CWR}" "/CPU and Buffers/~{CM1}" "unconnected-(U11-~{RFSH}-Pad28)" "/CPU and Buffers/AA0" "/CPU and Buffers/AA1"
+    "/CPU and Buffers/AA2" "/CPU and Buffers/AA3" "/CPU and Buffers/AA4" "/CPU and Buffers/AA5" "/CPU and Buffers/AA6" "/CPU and Buffers/AA7" "unconnected-(U13-O2a-Pad14)" "unconnected-(U13-O1a-Pad16)"
+    "unconnected-(U13-O0a-Pad18)" "unconnected-(U18-~{W{slash}RDYA}-Pad10)" "unconnected-(U18-~{SYNCA}-Pad11)" "Net-(U18-RxDA)" "Net-(U18-TxDA)" "unconnected-(RN1-R8-Pad9)" "unconnected-(U2-Q7-Pad12)" "unconnected-(U18-~{DTRA}-Pad16)"
+    "unconnected-(U18-~{RTSA}-Pad17)" "unconnected-(U18-~{RTSB}-Pad24)" "unconnected-(U18-~{DTRB}-Pad25)" "Net-(U18-TxDB)" "Net-(U18-RxDB)" "unconnected-(U18-~{SYNCB}-Pad29)" "unconnected-(U18-~{W{slash}RDYB}-Pad30)" "unconnected-(U19-~{RESET}-Pad4)"
+    "unconnected-(U19-GP3_(I2C)-Pad8)" "unconnected-(U19-SDA-Pad9)" "unconnected-(U19-SCL-Pad10)" "unconnected-(U20-~{RESET}-Pad4)" "unconnected-(U20-GP3_(I2C)-Pad8)" "unconnected-(U20-SDA-Pad9)" "unconnected-(U20-SCL-Pad10)" "Net-(U21-CLK{slash}TRG3)"
+    "unconnected-(U21-IEO-Pad11)" "Net-(U19-GP2_(USB))" "Net-(U19-GP1_(Tx))" "Net-(U19-GP0_(Rx))" "Net-(U20-GP2_(USB))" "Net-(U20-GP1_(Tx))" "Net-(U20-GP0_(Rx))"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Power
+    +5V GND
+    (clearance_class Power)
+    (via_rule Power)
+    (rule
+      (width 500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
