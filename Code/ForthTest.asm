@@ -1,28 +1,52 @@
-ParsedWord:		equ		$7E00			; Memory location to store parsed word
-InputWord: 		equ 	ParsedWord		; Assuming a word has already been parsed
-FoundWordExecAddr	equ		$7D00			; Adjust this address as neeed
+; Jump Table
+Ascii2HexNibble = $FE00				; [A -> A][A -> A]
+Ascii2HexByte	= $FE03				; [(HL) -> A][(HL) -> A]
+Ascii2HexWord	= $FE06				; [(HL) -> BC][(HL) -> BC]
+ClearScreen		= $FE09				; [][]
+GetHexParameter	= $FE0C				; [(HL) -> BC,A,(HL)][(HL) -> BC,A,(HL)]
+PrintChar		= $FE0F				; [A ->][A ->]
+PrintString		= $FE12				; [HL ->][HL ->]
+PrintCRLF		= $FE15				; [][]
+PrintNibble		= $FE18				; [A ->][A ->]
+PrintByte		= $FE1B				; [A ->][A ->]
+PrintWord		= $FE1E				; [HL ->][HL ->]
+RangeValidation	= $FE21				; Start&EndAddress -> C, Start&EndAddress, Start&EndAddressAlt)
+ReadChar		= $FE24				; [-> A][-> A]
+ReadCharNoWait	= $FE27
+ReadString		= $FE2A				; [HL ->][HL ->]
+ReadByte		= $FE2D				; [-> A][-> A]
+ReadWord		= $FE30				; [-> HL][-> HL]
+SkipSpaces		= $FE33				; [HL -> HL][HL -> HL]
+UpperCase		= $FE36				; [A -> A][A -> A]
+Registers		= $FE39				; [][]
+Dec2Hex			= $FE3C				; [(HL) -> BC]	
+
+; Return Stack (assuming stack starts at memory address 0x8000)
+ReturnStack		equ		$8000
+RetStkPtr		equ		ReturnStack		; Forth Return Stack Pointer
 
 ; Data stack (assuming stack starts at memory address 0x7F00)
-DataStack		equ		$7F00
-FSP				equ		DataStack		; Forth Stack Pointer
+DataStack		equ		$7F00			; Data Stack
+DatStkPtr		equ		DataStack		; Data Stack Pointer
+	
+ParsedWord:		equ		$7800			; Memory location to store parsed word
+InputWord: 		equ 	ParsedWord		; Assuming a word has already been parsed
+FoundWordAddr	equ		$7900			; Adjust this address as neeed
 
-; Return stack (assuming stack starts at memory address 0x8000)
-ReturnStack		equ		$8000
-FRP 			equ		ReturnStack		; Forth Return Pointer
+
 
 
 Fr80Forth:
 	; Initialize the data stack and return stack
 	ld		HL,DataStack
-	ld		(FSP),HL
+	ld		(DatStkPtr),HL
 	ld		HL,ReturnStack
-	ld		(FRP),HL
+	ld		(RetStkPtr),HL
 
 ForthMainLoop:
 	call	GetWord				; Get the next word from input
-	call	FIND_WORD			; Find the word in the dictionary
-	call	EXECUTE				; Execute the word
-	call	PRINT_STACK			; Print the stack for debugging
+	call	FindWord			; Find the word in the dictionary
+	call	ExecuteWordFound	; Execute the word
 	jr		ForthMainLoop
 
 
@@ -81,7 +105,7 @@ FindWordLoop:
 	cp		#EOT
 	jp		z,WordNotFound
 
-	add		HL,BC					; Move to the next dictionary entry
+	add		HL,BC				; Move to the next dictionary entry
 	jr		FindWordLoop
 
 
@@ -90,8 +114,8 @@ FindWordLoop:
 ; Execution address is in DE
 
 WordFound:
-	ld		(FoundWordExecAddr),DE	; Store the execution address in memory for execution
-	call	ExecuteWordFound		; Execute the found word
+	ld		(FoundWordAddr),DE	; Store the execution address in memory for execution
+	call	ExecuteWordFound	; Execute the found word
 	ret
 
 

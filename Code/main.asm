@@ -37,29 +37,29 @@
 ; VARIOUS CONSTANTS AND ADDRESSES USED IN THE CODE
 
 ; GENERAL EQUATES
-NULL			= $00
-CTRLC			= $03				; Control-C (Break)
-CTRLG			= $07				; Control-G (Bell)
-BKSP			= $08				; Backspace
-TAB				= $09				; Horizontal tab
-LF				= $0A				; Line-feed character
-CS				= $0C				; Clear Screen
-CR				= $0D				; Carriage-return character
-CTRLO			= $0F				; Control "O"
-CTRLQ			= $11				; Control "Q"
-CTRLR			= $12				; Control "R"
-CTRLS			= $13				; Control "S"
-CTRLU			= $15				; Control "U"
-ESC				= $1B				; Escape
-SPACE			= $20				; Space character
-DEL				= $7F				; Delete
+NULL			= 0x00
+CTRLC			= 0x03				; Control-C (Break)
+CTRLG			= 0x07				; Control-G (Bell)
+BKSP			= 0x08				; Backspace
+TAB				= 0x09				; Horizontal tab
+LF				= 0x0A				; Line-feed character
+CS				= 0x0C				; Clear Screen
+CR				= 0x0D				; Carriage-return character
+CTRLO			= 0x0F				; Control "O"
+CTRLQ			= 0x11				; Control "Q"
+CTRLR			= 0x12				; Control "R"
+CTRLS			= 0x13				; Control "S"
+CTRLU			= 0x15				; Control "U"
+ESC				= 0x1B				; Escape
+SPACE			= 0x20				; Space character
+DEL				= 0x7F				; Delete
 
 DELIMITER		= " "				; Space delimiter between command line parameters
 ERRORPTR		= "^"				; Error pointer symbol (used for pointing to the error position on command line)
-QUOTE			= $22
-JUMP			= $C3				; Delimiter for command list items (It's the actual jp command opcode)
-HELP			= $0F
-EOT				= $FF				; End of table
+QUOTE			= 0x22
+JUMP			= 0xC3				; Delimiter for command list items (It's the actual jp command opcode)
+HELP			= 0x0F
+EOT				= 0xFF				; End of table
 
 ;PARAMETERS
 HorizTextRes	= 40				; Horizontal text resolution (40 or 80)
@@ -68,13 +68,13 @@ ErrorPtrOffset	= 9					; Take into account the command prompt width
 BytesFree		= (VectorTable-EndOfCode)+(StartOfCode-InterruptVectorEnd)	; Base free bytes
 
 ; I/O ADDRESSES
-SIO_PortA_Data	= $00				; SIO data port A
-SIO_PortB_Data	= $01				; SIO data port B
-SIO_PortA_Ctrl	= $02				; SIO control port A
-SIO_PortB_Ctrl	= $03				; SIO control port B
+SIO_PortA_Data	= 0x00				; SIO data port A
+SIO_PortB_Data	= 0x01				; SIO data port B
+SIO_PortA_Ctrl	= 0x02				; SIO control port A
+SIO_PortB_Ctrl	= 0x03				; SIO control port B
 
-BankSelect		= $30				; RAM bank select address (values ($00 to $FF)
-RomDisable		= $38				; ROM dissable address (any value)
+BankSelect		= 0x30				; RAM bank select address (values (0x00 to 0xFF)
+RomDisable		= 0x38				; ROM dissable address (any value)
 
 ; STATUS INDICATOR FLAGS (BIT NUMBER... 3 and 5 are not used
 Carry			= 0					; (F) Carry flag
@@ -95,43 +95,43 @@ Sign			= 7					; (S) Sign flag
 ; ---------------------------------------------------------------------------------------------------------------------
 ; RESET AND INTERRUPT VECTORS (8-BYTE VECTORS EACH)
 
-	.org	$0000
+	.org	0x0000
 	
 RST00:								; Reset vector 0: Standard boot up reset vector
 	jp		ShadowCopy				; Shadow copy BIOS and vectors
-	ds		$0008-$,$FF
+	ds		0x0008-$,0xFF
 
 RST08:								; Reset Vector 1
 	halt
-	ds		$0010-$,$FF
+	ds		0x0010-$,0xFF
 
 RST10:								; Reset Vector 2
 	halt
-	ds		$0018-$,$FF
+	ds		0x0018-$,0xFF
 	
 RST18:								; Reset Vector 3
 	halt
-	ds		$0020-$,$FF
+	ds		0x0020-$,0xFF
 
 RST20:								; Reset Vector 4
 	halt
-	ds		$0028-$,$FF
+	ds		0x0028-$,0xFF
 
 RST28:								; Reset Vector 5
 	halt
-	ds		$0030-$,$FF
+	ds		0x0030-$,0xFF
 
 RST30:								; Reset Vector 6
 	halt
-	ds		$0038-$,$FF
+	ds		0x0038-$,0xFF
 
 RST38:								; Reset vector 7: Interrupt Mode 1
 	halt
-	ds		$0066-$,$FF
+	ds		0x0066-$,0xFF
 
 NMI66:								; Non-masquable interreupt vector
 	halt
-	ds		$0080-$,$FF
+	ds		0x0080-$,0xFF
 
 InterruptVectorEnd:
 
@@ -149,17 +149,17 @@ ShadowCopy:
 	di								; Disable interrupts
 	
 ; COPY INTERRUPT VECTORS TO ALL BANKS
-	ld		A,$0E					; Starting bank number
+	ld		A,0x0E					; Starting bank number
 BankCopyLoop:						; Loop to copy reset vectors to all banks
 	out		(BankSelect),A			; Sets bank number to value in accumulator
 	; Perform vector copy
-	ld      HL,$0000				; Set start at address $0000 (ROM)
-	ld      DE,$0000				; Set destination address (RAM)
+	ld      HL,0x0000				; Set start at address 0x0000 (ROM)
+	ld      DE,0x0000				; Set destination address (RAM)
 	ld      BC,InterruptVectorEnd	; Set counter to copy the interrupt vector table only
 	ldir							; Copy, paste, and repeat, until the end of BC has been reached
 	; Check for next iteration
 	dec		A						; Decrement accumulator to move on to next bank
-	cp		$FF						; Has accumulator reached the end of the loop (past zero)?
+	cp		0xFF						; Has accumulator reached the end of the loop (past zero)?
 	jr		nz,BankCopyLoop			; If not then do next bank the loop, else Bank 0 is already pre-selected
 	ld		(CurrentBank),A			; Save Current Bank
 
@@ -174,12 +174,12 @@ ROMCopy:
 VectorCopy:
     ld      HL,VectorTable			; Source address
     ld      DE,VectorTable			; Destination address
-    ld      BC,$FFFF-VectorTable	; Bytes to copy
+    ld      BC,0xFFFF-VectorTable	; Bytes to copy
     ldir							; Copy, paste, and repeat, until the range has been reached
 
 	jp		StartOfCode
 
-	ds		StartOfCode-$,$FF		; Fill the rest of memory to start of code with $FF for fast FLASH programming
+	ds		StartOfCode-$,0xFF		; Fill the rest of memory to start of code with 0xFF for fast FLASH programming
 
 
 ;  ___           _   _     _           _   _              
@@ -191,12 +191,12 @@ VectorCopy:
 ; ---------------------------------------------------------------------------------------------------------------------
 ; START OF CODE
 
-	.org	$8000					; Start of code at beginning of high memory
+	.org	0x8000					; Start of code at beginning of high memory
 
 StartOfCode:
 	ld		A,0
 	out		(RomDisable),A			; Disable the ROM
-	ld      SP,$FFFF				; Set top of stack pointer to page FF
+	ld      SP,0xFFFF				; Set top of stack pointer to page FF
 	
 	call	SIO_Init				; Initializes the SIO
 
@@ -212,7 +212,7 @@ StartOfCode:
 	pop		HL
 	call	PrintString
 
-	ld		HL,$0000				; Set default current address
+	ld		HL,0x0000				; Set default current address
 	ld		(CurrentAddress),HL		; Save in CurrentAddress variable
 	ld		A,0
 	out		(BankSelect),A			; Set the bank to number 0
@@ -310,7 +310,7 @@ ByteTransfer:		ds	1			; Byte to copy/transfer
 UserCodeSize:		ds	2			; Size of uploaded user code
 
 EndOfCode:
-	ds	VectorTable-$,$FF			; Fill gap with $FF to optimize speed when programming the FLASH/EEPROM
+	ds	VectorTable-$,0xFF			; Fill gap with 0xFF to optimize speed when programming the FLASH/EEPROM
 
 
 ; __     __                _                      _____           _       _        
@@ -321,16 +321,16 @@ EndOfCode:
 ;
 ; ---------------------------------------------------------------------------------------------------------------------
 ; CONSTANT VALUES SO EXTERNALLY LOADED PROGRAMS CAN ACCESS SPECIFIC INFORMATION
-	.org	$FD00
+	.org	0xFD00
 
 VectorTable:
 
-IntVectorEnd:		dw	InterruptVectorEnd	;= $FD00			; End of interrupt vector table
-VectorTableStart:	dw	VectorTable			;= $FD02			; Start of vector and jump tables
-CodeStartAddr:		dw	StartOfCode			;= $FD04			; Start of code address
-CodeEndAddr:		dw	EndOfCode			;= $FD06			; End of code address
+IntVectorEnd:		dw	InterruptVectorEnd	;= 0xFD00			; End of interrupt vector table
+VectorTableStart:	dw	VectorTable			;= 0xFD02			; Start of vector and jump tables
+CodeStartAddr:		dw	StartOfCode			;= 0xFD04			; Start of code address
+CodeEndAddr:		dw	EndOfCode			;= 0xFD06			; End of code address
 
-	ds	JumpTable-$,$FF				; $FF up to the jump table
+	ds	JumpTable-$,0xFF				; 0xFF up to the jump table
 
 
 ;      _                                 _____           _       _        
@@ -342,33 +342,33 @@ CodeEndAddr:		dw	EndOfCode			;= $FD06			; End of code address
 ; ---------------------------------------------------------------------------------------------------------------------
 ; JUMP TABLE TO CALL ROUTINES FROM AN EXTERNAL PROGRAM
 
-	.org	$FE00
+	.org	0xFE00
 	
 JumpTable:
-	jp		Ascii2HexNibble		;= $FE00				; [A -> A][A -> A]
-	jp		Ascii2HexByte		;= $FE03				; [(HL) -> A][(HL) -> A]
-	jp		Ascii2HexWord		;= $FE06				; [(HL) -> BC][(HL) -> BC]
-	jp		ClearScreen			;= $FE09				; [][]
-	jp		GetHexParameter		;= $FE0C				; [(HL) -> BC,A,(HL)][(HL) -> BC,A,(HL)]
-	jp		PrintChar			;= $FE0F				; [A ->][A ->]
-	jp		PrintString			;= $FE12				; [HL ->][HL ->]
-	jp		PrintCRLF			;= $FE15				; [][]
-	jp		PrintNibble			;= $FE18				; [A ->][A ->]
-	jp		PrintByte			;= $FE1B				; [A ->][A ->]
-	jp		PrintWord			;= $FE1E				; [HL ->][HL ->]
-	jp		RangeValidation		;= $FE21				; Start&EndAddress -> C, Start&EndAddress, Start&EndAddressAlt)
-	jp		ReadChar			;= $FE24				; [-> A][-> A]
-	jp		ReadCharNoWait		;= $FE27
-	jp		ReadString			;= $FE2A				; [HL ->][HL ->]
-	jp		ReadByte			;= $FE2D				; [-> A][-> A]
-	jp		ReadWord			;= $FE30				; [-> HL][-> HL]
-	jp		SkipSpaces			;= $FE33				; [HL -> HL][HL -> HL]
-	jp		UpperCase			;= $FE36				; [A -> A][A -> A]
-	jp		Registers			;= $FE39				; [][]
-	jp		Dec2Hex				;= $FE3C				; [(HL) -> BC]
+	jp		Ascii2HexNibble		;= 0xFE00				; [A -> A][A -> A]
+	jp		Ascii2HexByte		;= 0xFE03				; [(HL) -> A][(HL) -> A]
+	jp		Ascii2HexWord		;= 0xFE06				; [(HL) -> BC][(HL) -> BC]
+	jp		ClearScreen			;= 0xFE09				; [][]
+	jp		GetHexParameter		;= 0xFE0C				; [(HL) -> BC,A,(HL)][(HL) -> BC,A,(HL)]
+	jp		PrintChar			;= 0xFE0F				; [A ->][A ->]
+	jp		PrintString			;= 0xFE12				; [HL ->][HL ->]
+	jp		PrintCRLF			;= 0xFE15				; [][]
+	jp		PrintNibble			;= 0xFE18				; [A ->][A ->]
+	jp		PrintByte			;= 0xFE1B				; [A ->][A ->]
+	jp		PrintWord			;= 0xFE1E				; [HL ->][HL ->]
+	jp		RangeValidation		;= 0xFE21				; Start&EndAddress -> C, Start&EndAddress, Start&EndAddressAlt)
+	jp		ReadChar			;= 0xFE24				; [-> A][-> A]
+	jp		ReadCharNoWait		;= 0xFE27
+	jp		ReadString			;= 0xFE2A				; [HL ->][HL ->]
+	jp		ReadByte			;= 0xFE2D				; [-> A][-> A]
+	jp		ReadWord			;= 0xFE30				; [-> HL][-> HL]
+	jp		SkipSpaces			;= 0xFE33				; [HL -> HL][HL -> HL]
+	jp		UpperCase			;= 0xFE36				; [A -> A][A -> A]
+	jp		Registers			;= 0xFE39				; [][]
+	jp		Dec2Hex				;= 0xFE3C				; [(HL) -> BC]
 
 VectorEnd:
-	ds		StackPage-$,$FF		; $FF the rest of the jump table all the way to the stack area
+	ds		StackPage-$,0xFF		; 0xFF the rest of the jump table all the way to the stack area
 
 
 ;  ____    _                    _    
@@ -380,11 +380,11 @@ VectorEnd:
 ; ---------------------------------------------------------------------------------------------------------------------
 ; STACK AREA, ClEAR OUT WITH ZEROS
 
-	.org	$FF00
+	.org	0xFF00
 
 StackPage:
 
-	ds		$FFFF-$,$00			; Zero the stack all the way to end of ROM
+	ds		0xFFFF-$,0x00			; Zero the stack all the way to end of ROM
 
 BiosEnd:
 .end
