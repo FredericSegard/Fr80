@@ -1,0 +1,108 @@
+
+(rules PCB 1 - Main CPU board with basic peripherals (rev6)
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 21224)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+  )
+  (rule
+    (width 152.4)
+    (clear 127.2)
+    (clear 76.2 (type smd_to_turn_gap))
+    (clear 31.8 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-Power" "Via[0-1]_800:400_um" Power
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (via_rule
+    Power "Via[0-1]_800:400_um-Power"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 152.4)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "Net-(D1-A)" ~{NMI} ~{WAIT} ~{INT} ~{BUSRQ} ~{RESET} "/Glue Logic/~{ROM_SEL}" "/Glue Logic/~{RAM_SEL}"
+    "unconnected-(J3-VBUS-Pad1)" ~{RD} "~{RAM_OE}" ~{MREQ} "~{ROM_CS}" A6 A7 A3
+    A4 A5 ~{IORQ} ~{M1} "BUS_IEO" "CTC_IEI" "~{SIO_CS}" A15
+    "~{CTC_CS}" BA15 "~{BANK_RD}" BA16 BA17 "~{BANK_WR}" BA18 "/Glue Logic/RBA15"
+    D0 D1 D2 D3 "/Glue Logic/RBA16" "/Glue Logic/RBA17" A11 A10
+    A12 A9 A13 A8 A14 CLK D4 D5
+    A2 D6 A1 A0 D7 "/Glue Logic/RBA18" "/Glue Logic/~{ROM_DIS}" ~{BUSAK}
+    ~{WR} "unconnected-(U3-Q4-Pad12)" "unconnected-(U3-Q5-Pad15)" "Net-(D2-A)" "Net-(U13-VUSB)" "Net-(U14-VUSB)" ~{IRQ}1 ~{IRQ}2
+    ~{IRQ}4 ~{IRQ}5 ~{IRQ}6 ~{IRQ}7 "unconnected-(J4-VBUS-Pad1)" ~{IRQ}3 ~{IRQ}0 MODE2
+    "Net-(U5-S2)" "Net-(U5-S1)" "Net-(U5-S0)" "unconnected-(U5-EO-Pad15)" CTCLK1 CTCLK2 "unconnected-(U8-~{RFSH}-Pad28)" "Net-(U11-CLK{slash}TRG3)"
+    "unconnected-(U11-IEO-Pad11)" "unconnected-(U12-~{W{slash}RDYA}-Pad10)" "unconnected-(U12-~{SYNCA}-Pad11)" "Net-(U12-RxDA)" "Net-(U12-TxDA)" "unconnected-(U12-~{DTRA}-Pad16)" "unconnected-(U12-~{RTSA}-Pad17)" "unconnected-(U12-~{RTSB}-Pad24)"
+    "unconnected-(U12-~{DTRB}-Pad25)" "Net-(U12-TxDB)" "Net-(U12-RxDB)" "unconnected-(U12-~{SYNCB}-Pad29)" "unconnected-(U12-~{W{slash}RDYB}-Pad30)" "unconnected-(U13-~{RESET}-Pad4)" "unconnected-(U13-GP3_(I2C)-Pad8)" "unconnected-(U13-SDA-Pad9)"
+    "unconnected-(U13-SCL-Pad10)" "unconnected-(U14-~{RESET}-Pad4)" "unconnected-(U14-GP3_(I2C)-Pad8)" "unconnected-(U14-SDA-Pad9)" "unconnected-(U14-SCL-Pad10)" "Net-(RN2-R1)" "Net-(RN2-R2)" "Net-(RN2-R3)"
+    "Net-(RN2-R4)" "Net-(RN2-R5)" "Net-(RN2-R6)" "Net-(RN2-R7)" "Net-(RN2-R8)" USB2 TX2 RX2
+    USB1 TX1 RX1 "Net-(D3-A)" "Net-(D4-K)" "Net-(D4-A)" "/CTC & SIO/D1+" "/CTC & SIO/D1-"
+    "/CTC & SIO/D2+" "/CTC & SIO/D2-"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 152.4)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Power
+    +5V GND
+    (clearance_class Power)
+    (via_rule Power)
+    (rule
+      (width 381.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
