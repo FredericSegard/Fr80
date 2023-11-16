@@ -124,11 +124,11 @@ section seg8000 (attr=<acrwx> align=1):
     8076: symbol: PrintChar EXPR(32886=0x8076) ABS 
     8076: data(1): f5 
     8077: symbol: PrintCharTxWait EXPR(32887=0x8077) ABS 
-    8077: data(2): db 02 
+    8077: data(2): db 06 
     8079: data(2): e6 04 
     807b: data(2): 28 fa 
     807d: data(1): f1 
-    807e: data(2): d3 00 
+    807e: data(2): d3 04 
     8080: data(1): c9 
     8081: symbol: PrintCRLF EXPR(32897=0x8081) ABS 
     8081: data(1): f5 
@@ -183,17 +183,17 @@ section seg8000 (attr=<acrwx> align=1):
     80c7: data(1): f1 
     80c8: data(1): c9 
     80c9: symbol: ReadChar EXPR(32969=0x80c9) ABS 
-    80c9: data(2): db 02 
+    80c9: data(2): db 06 
     80cb: data(2): e6 01 
     80cd: data(2): 28 fa 
-    80cf: data(2): db 00 
+    80cf: data(2): db 04 
     80d1: data(1): c9 
     80d2: symbol: ReadCharNoWait EXPR(32978=0x80d2) ABS 
-    80d2: data(2): db 02 
+    80d2: data(2): db 06 
     80d4: data(2): e6 01 
     80d6: data(2): 3e 00 
     80d8: data(1): c8 
-    80d9: data(2): db 00 
+    80d9: data(2): db 04 
     80db: data(1): b7 
     80dc: data(1): c9 
     80dd: symbol: ReadByte EXPR(32989=0x80dd) ABS 
@@ -271,20 +271,20 @@ section seg8000 (attr=<acrwx> align=1):
     814c: data(1): c9 
     814d: symbol: SIO_Init EXPR(33101=0x814d) ABS 
     814d: data(2): 3e 18 
-    814f: data(2): d3 02 
+    814f: data(2): d3 06 
     8151: data(1): 00 
     8152: data(2): 3e 04 
-    8154: data(2): d3 02 
+    8154: data(2): d3 06 
     8156: data(2): 3e 44 
-    8158: data(2): d3 02 
+    8158: data(2): d3 06 
     815a: data(2): 3e 03 
-    815c: data(2): d3 02 
+    815c: data(2): d3 06 
     815e: data(2): 3e c1 
-    8160: data(2): d3 02 
+    8160: data(2): d3 06 
     8162: data(2): 3e 05 
-    8164: data(2): d3 02 
+    8164: data(2): d3 06 
     8166: data(2): 3e 68 
-    8168: data(2): d3 02 
+    8168: data(2): d3 06 
     816a: data(1): c9 
     816b: symbol: Ascii2BcdDigit EXPR(33131=0x816b) UNUSED ABS 
     816b: symbol: Ascii2HexNibble EXPR(33131=0x816b) ABS 
@@ -7814,10 +7814,10 @@ Negative EXPR(1=0x1) EQU
 Carry EXPR(0=0x0) EQU 
 RomDisable EXPR(56=0x38) EQU 
 BankSelect EXPR(48=0x30) EQU 
-SIO_PortB_Ctrl EXPR(3=0x3) UNUSED EQU 
-SIO_PortA_Ctrl EXPR(2=0x2) EQU 
-SIO_PortB_Data EXPR(1=0x1) UNUSED EQU 
-SIO_PortA_Data EXPR(0=0x0) EQU 
+SIO_PortB_Ctrl EXPR(7=0x7) UNUSED EQU 
+SIO_PortA_Ctrl EXPR(6=0x6) EQU 
+SIO_PortB_Data EXPR(5=0x5) UNUSED EQU 
+SIO_PortA_Data EXPR(4=0x4) EQU 
 BytesFree EXPR(52128=0xcba0) EQU 
 InterruptVectorEnd EXPR(128=0x80) ABS 
 StartOfCode EXPR(32768=0x8000) ABS 

@@ -46,29 +46,29 @@ Source: "main.asm"
                         	    37: ; VARIOUS CONSTANTS AND ADDRESSES USED IN THE CODE
                         	    38: 
                         	    39: ; GENERAL EQUATES
-                        	    40: NULL			= $00
-                        	    41: CTRLC			= $03				; Control-C (Break)
-                        	    42: CTRLG			= $07				; Control-G (Bell)
-                        	    43: BKSP			= $08				; Backspace
-                        	    44: TAB				= $09				; Horizontal tab
-                        	    45: LF				= $0A				; Line-feed character
-                        	    46: CS				= $0C				; Clear Screen
-                        	    47: CR				= $0D				; Carriage-return character
-                        	    48: CTRLO			= $0F				; Control "O"
-                        	    49: CTRLQ			= $11				; Control "Q"
-                        	    50: CTRLR			= $12				; Control "R"
-                        	    51: CTRLS			= $13				; Control "S"
-                        	    52: CTRLU			= $15				; Control "U"
-                        	    53: ESC				= $1B				; Escape
-                        	    54: SPACE			= $20				; Space character
-                        	    55: DEL				= $7F				; Delete
+                        	    40: NULL			= 0x00
+                        	    41: CTRLC			= 0x03				; Control-C (Break)
+                        	    42: CTRLG			= 0x07				; Control-G (Bell)
+                        	    43: BKSP			= 0x08				; Backspace
+                        	    44: TAB				= 0x09				; Horizontal tab
+                        	    45: LF				= 0x0A				; Line-feed character
+                        	    46: CS				= 0x0C				; Clear Screen
+                        	    47: CR				= 0x0D				; Carriage-return character
+                        	    48: CTRLO			= 0x0F				; Control "O"
+                        	    49: CTRLQ			= 0x11				; Control "Q"
+                        	    50: CTRLR			= 0x12				; Control "R"
+                        	    51: CTRLS			= 0x13				; Control "S"
+                        	    52: CTRLU			= 0x15				; Control "U"
+                        	    53: ESC				= 0x1B				; Escape
+                        	    54: SPACE			= 0x20				; Space character
+                        	    55: DEL				= 0x7F				; Delete
                         	    56: 
                         	    57: DELIMITER		= " "				; Space delimiter between command line parameters
                         	    58: ERRORPTR		= "^"				; Error pointer symbol (used for pointing to the error position on command line)
-                        	    59: QUOTE			= $22
-                        	    60: JUMP			= $C3				; Delimiter for command list items (It's the actual jp command opcode)
-                        	    61: HELP			= $0F
-                        	    62: EOT				= $FF				; End of table
+                        	    59: QUOTE			= 0x22
+                        	    60: JUMP			= 0xC3				; Delimiter for command list items (It's the actual jp command opcode)
+                        	    61: HELP			= 0x0F
+                        	    62: EOT				= 0xFF				; End of table
                         	    63: 
                         	    64: ;PARAMETERS
                         	    65: HorizTextRes	= 40				; Horizontal text resolution (40 or 80)
@@ -77,13 +77,13 @@ Source: "main.asm"
                         	    68: BytesFree		= (VectorTable-EndOfCode)+(StartOfCode-InterruptVectorEnd)	; Base free bytes
                         	    69: 
                         	    70: ; I/O ADDRESSES
-                        	    71: SIO_PortA_Data	= $00				; SIO data port A
-                        	    72: SIO_PortB_Data	= $01				; SIO data port B
-                        	    73: SIO_PortA_Ctrl	= $02				; SIO control port A
-                        	    74: SIO_PortB_Ctrl	= $03				; SIO control port B
+                        	    71: SIO_PortA_Data	= 0x04				; SIO data port A
+                        	    72: SIO_PortB_Data	= 0x05				; SIO data port B
+                        	    73: SIO_PortA_Ctrl	= 0x06				; SIO control port A
+                        	    74: SIO_PortB_Ctrl	= 0x07				; SIO control port B
                         	    75: 
-                        	    76: BankSelect		= $30				; RAM bank select address (values ($00 to $FF)
-                        	    77: RomDisable		= $38				; ROM dissable address (any value)
+                        	    76: BankSelect		= 0x30				; RAM bank select address (values (0x00 to 0xFF)
+                        	    77: RomDisable		= 0x38				; ROM dissable address (any value)
                         	    78: 
                         	    79: ; STATUS INDICATOR FLAGS (BIT NUMBER... 3 and 5 are not used
                         	    80: Carry			= 0					; (F) Carry flag
@@ -104,51 +104,51 @@ Source: "main.asm"
                         	    95: ; ---------------------------------------------------------------------------------------------------------------------
                         	    96: ; RESET AND INTERRUPT VECTORS (8-BYTE VECTORS EACH)
                         	    97: 
-                        	    98: 	.org	$0000
+                        	    98: 	.org	0x0000
                         	    99: 	
                         	   100: RST00:								; Reset vector 0: Standard boot up reset vector
 00:0000 C38000          	   101: 	jp		ShadowCopy				; Shadow copy BIOS and vectors
-00:0003 FF              	   102: 	ds		$0008-$,$FF
+00:0003 FF              	   102: 	ds		0x0008-$,0xFF
 00:0004 *
                         	   103: 
                         	   104: RST08:								; Reset Vector 1
 00:0008 76              	   105: 	halt
-00:0009 FF              	   106: 	ds		$0010-$,$FF
+00:0009 FF              	   106: 	ds		0x0010-$,0xFF
 00:000A *
                         	   107: 
                         	   108: RST10:								; Reset Vector 2
 00:0010 76              	   109: 	halt
-00:0011 FF              	   110: 	ds		$0018-$,$FF
+00:0011 FF              	   110: 	ds		0x0018-$,0xFF
 00:0012 *
                         	   111: 	
                         	   112: RST18:								; Reset Vector 3
 00:0018 76              	   113: 	halt
-00:0019 FF              	   114: 	ds		$0020-$,$FF
+00:0019 FF              	   114: 	ds		0x0020-$,0xFF
 00:001A *
                         	   115: 
                         	   116: RST20:								; Reset Vector 4
 00:0020 76              	   117: 	halt
-00:0021 FF              	   118: 	ds		$0028-$,$FF
+00:0021 FF              	   118: 	ds		0x0028-$,0xFF
 00:0022 *
                         	   119: 
                         	   120: RST28:								; Reset Vector 5
 00:0028 76              	   121: 	halt
-00:0029 FF              	   122: 	ds		$0030-$,$FF
+00:0029 FF              	   122: 	ds		0x0030-$,0xFF
 00:002A *
                         	   123: 
                         	   124: RST30:								; Reset Vector 6
 00:0030 76              	   125: 	halt
-00:0031 FF              	   126: 	ds		$0038-$,$FF
+00:0031 FF              	   126: 	ds		0x0038-$,0xFF
 00:0032 *
                         	   127: 
                         	   128: RST38:								; Reset vector 7: Interrupt Mode 1
 00:0038 76              	   129: 	halt
-00:0039 FF              	   130: 	ds		$0066-$,$FF
+00:0039 FF              	   130: 	ds		0x0066-$,0xFF
 00:003A *
                         	   131: 
                         	   132: NMI66:								; Non-masquable interreupt vector
 00:0066 76              	   133: 	halt
-00:0067 FF              	   134: 	ds		$0080-$,$FF
+00:0067 FF              	   134: 	ds		0x0080-$,0xFF
 00:0068 *
                         	   135: 
                         	   136: InterruptVectorEnd:
@@ -167,17 +167,17 @@ Source: "main.asm"
 00:0080 F3              	   149: 	di								; Disable interrupts
                         	   150: 	
                         	   151: ; COPY INTERRUPT VECTORS TO ALL BANKS
-00:0081 3E0E            	   152: 	ld		A,$0E					; Starting bank number
+00:0081 3E0E            	   152: 	ld		A,0x0E					; Starting bank number
                         	   153: BankCopyLoop:						; Loop to copy reset vectors to all banks
 00:0083 D330            	   154: 	out		(BankSelect),A			; Sets bank number to value in accumulator
                         	   155: 	; Perform vector copy
-00:0085 210000          	   156: 	ld      HL,$0000				; Set start at address $0000 (ROM)
-00:0088 110000          	   157: 	ld      DE,$0000				; Set destination address (RAM)
+00:0085 210000          	   156: 	ld      HL,0x0000				; Set start at address 0x0000 (ROM)
+00:0088 110000          	   157: 	ld      DE,0x0000				; Set destination address (RAM)
 00:008B 018000          	   158: 	ld      BC,InterruptVectorEnd	; Set counter to copy the interrupt vector table only
 00:008E EDB0            	   159: 	ldir							; Copy, paste, and repeat, until the end of BC has been reached
                         	   160: 	; Check for next iteration
 00:0090 3D              	   161: 	dec		A						; Decrement accumulator to move on to next bank
-00:0091 FEFF            	   162: 	cp		$FF						; Has accumulator reached the end of the loop (past zero)?
+00:0091 FEFF            	   162: 	cp		0xFF						; Has accumulator reached the end of the loop (past zero)?
 00:0093 20EE            	   163: 	jr		nz,BankCopyLoop			; If not then do next bank the loop, else Bank 0 is already pre-selected
 00:0095 32B8B0          	   164: 	ld		(CurrentBank),A			; Save Current Bank
                         	   165: 
@@ -192,12 +192,12 @@ Source: "main.asm"
                         	   174: VectorCopy:
 00:00A3 2100FD          	   175:     ld      HL,VectorTable			; Source address
 00:00A6 1100FD          	   176:     ld      DE,VectorTable			; Destination address
-00:00A9 01FF02          	   177:     ld      BC,$FFFF-VectorTable	; Bytes to copy
+00:00A9 01FF02          	   177:     ld      BC,0xFFFF-VectorTable	; Bytes to copy
 00:00AC EDB0            	   178:     ldir							; Copy, paste, and repeat, until the range has been reached
                         	   179: 
 00:00AE C30080          	   180: 	jp		StartOfCode
                         	   181: 
-00:00B1 FF              	   182: 	ds		StartOfCode-$,$FF		; Fill the rest of memory to start of code with $FF for fast FLASH programming
+00:00B1 FF              	   182: 	ds		StartOfCode-$,0xFF		; Fill the rest of memory to start of code with 0xFF for fast FLASH programming
 00:00B2 *
                         	   183: 
                         	   184: 
@@ -210,12 +210,12 @@ Source: "main.asm"
                         	   191: ; ---------------------------------------------------------------------------------------------------------------------
                         	   192: ; START OF CODE
                         	   193: 
-                        	   194: 	.org	$8000					; Start of code at beginning of high memory
+                        	   194: 	.org	0x8000					; Start of code at beginning of high memory
                         	   195: 
                         	   196: StartOfCode:
 01:8000 3E00            	   197: 	ld		A,0
 01:8002 D338            	   198: 	out		(RomDisable),A			; Disable the ROM
-01:8004 31FFFF          	   199: 	ld      SP,$FFFF				; Set top of stack pointer to page FF
+01:8004 31FFFF          	   199: 	ld      SP,0xFFFF				; Set top of stack pointer to page FF
                         	   200: 	
 01:8007 CD4D81          	   201: 	call	SIO_Init				; Initializes the SIO
                         	   202: 
@@ -231,7 +231,7 @@ Source: "main.asm"
 01:8020 E1              	   212: 	pop		HL
 01:8021 CDB080          	   213: 	call	PrintString
                         	   214: 
-01:8024 210000          	   215: 	ld		HL,$0000				; Set default current address
+01:8024 210000          	   215: 	ld		HL,0x0000				; Set default current address
 01:8027 22B9B0          	   216: 	ld		(CurrentAddress),HL		; Save in CurrentAddress variable
 01:802A 3E00            	   217: 	ld		A,0
 01:802C D330            	   218: 	out		(BankSelect),A			; Set the bank to number 0
@@ -366,11 +366,11 @@ Source: "io.asm"
                         	    75: PrintChar:
 01:8076 F5              	    76: 	push	AF
                         	    77: PrintCharTxWait:
-01:8077 DB02            	    78: 	in		A,(SIO_PortA_Ctrl)		; Read RR0 and place it in accumulator
+01:8077 DB06            	    78: 	in		A,(SIO_PortA_Ctrl)		; Read RR0 and place it in accumulator
 01:8079 E604            	    79: 	and		%00000100				; Isolate bit 2: TX Buffer Empty
 01:807B 28FA            	    80: 	jr		z,PrintCharTxWait		; If it's busy, then wait
 01:807D F1              	    81: 	pop		AF
-01:807E D300            	    82: 	out		(SIO_PortA_Data),A		; Transmit the character in accumulator
+01:807E D304            	    82: 	out		(SIO_PortA_Data),A		; Transmit the character in accumulator
 01:8080 C9              	    83: 	ret
                         	    84: 
                         	    85: 
@@ -508,10 +508,10 @@ Source: "io.asm"
                         	   217: ; *********************************************************************************************************************
                         	   218: 
                         	   219: ReadChar:
-01:80C9 DB02            	   220: 	in		A,(SIO_PortA_Ctrl)		; Read RR0 and place it in the accumulator
+01:80C9 DB06            	   220: 	in		A,(SIO_PortA_Ctrl)		; Read RR0 and place it in the accumulator
 01:80CB E601            	   221: 	and		%00000001				; Isolate bit 1: RX Character Available
 01:80CD 28FA            	   222: 	jr		z,ReadChar				; If there's no character in buffer, loop until one is present
-01:80CF DB00            	   223: 	in		A,(SIO_PortA_Data)		; Read the character and place it in the accumulator
+01:80CF DB04            	   223: 	in		A,(SIO_PortA_Data)		; Read the character and place it in the accumulator
 01:80D1 C9              	   224: 	ret
                         	   225: 
                         	   226: 
@@ -530,11 +530,11 @@ Source: "io.asm"
                         	   239: ; *********************************************************************************************************************
                         	   240: 
                         	   241: ReadCharNoWait:
-01:80D2 DB02            	   242: 	in		A,(SIO_PortA_Ctrl)		; Read RR0 and place it in the accumulator
+01:80D2 DB06            	   242: 	in		A,(SIO_PortA_Ctrl)		; Read RR0 and place it in the accumulator
 01:80D4 E601            	   243: 	and		%00000001				; Isolate bit 1: RX Character Available
 01:80D6 3E00            	   244: 	ld		A,$00					; Put nothing in A
 01:80D8 C8              	   245: 	ret		z						; Return if not ready
-01:80D9 DB00            	   246: 	in		A,(SIO_PortA_Data)		; Read the character and place it in the accumulator
+01:80D9 DB04            	   246: 	in		A,(SIO_PortA_Data)		; Read the character and place it in the accumulator
 01:80DB B7              	   247: 	or		A						; Resets the carry flag (and zero)
 01:80DC C9              	   248: 	ret
                         	   249: 
@@ -682,20 +682,20 @@ Source: "io.asm"
                         	   391: 
                         	   392: SIO_Init:
 01:814D 3E18            	   393: 	ld		A,%00011000				; Perform channel reset
-01:814F D302            	   394: 	out		(SIO_PortA_Ctrl),A		; Requires four extra clock cycles for the SIO reset time
+01:814F D306            	   394: 	out		(SIO_PortA_Ctrl),A		; Requires four extra clock cycles for the SIO reset time
 01:8151 00              	   395: 	nop
 01:8152 3E04            	   396: 	ld		A,%00000100				; WR0: select register 4
-01:8154 D302            	   397: 	out		(SIO_PortA_Ctrl),A
+01:8154 D306            	   397: 	out		(SIO_PortA_Ctrl),A
 01:8156 3E44            	   398: 	ld		A,%01000100				; WR4: 1/16 (115200 @ 1.8432MHZ), 8-bit sync, 1 stop bit, no parity
-01:8158 D302            	   399: 	out		(SIO_PortA_Ctrl),A
+01:8158 D306            	   399: 	out		(SIO_PortA_Ctrl),A
 01:815A 3E03            	   400: 	ld		A,%00000011				; WR0: select register 3
-01:815C D302            	   401: 	out		(SIO_PortA_Ctrl),A
+01:815C D306            	   401: 	out		(SIO_PortA_Ctrl),A
 01:815E 3EC1            	   402: 	ld		A,%11000001				; WR3: 8-bits/char, RX enabled
-01:8160 D302            	   403: 	out		(SIO_PortA_Ctrl),A
+01:8160 D306            	   403: 	out		(SIO_PortA_Ctrl),A
 01:8162 3E05            	   404: 	ld		A,%00000101				; WR0: select register 5
-01:8164 D302            	   405: 	out		(SIO_PortA_Ctrl),A
+01:8164 D306            	   405: 	out		(SIO_PortA_Ctrl),A
 01:8166 3E68            	   406: 	ld		A,%01101000				; WR5: DTR=0, 8-bits/char, TX enabled
-01:8168 D302            	   407: 	out		(SIO_PortA_Ctrl),A
+01:8168 D306            	   407: 	out		(SIO_PortA_Ctrl),A
 01:816A C9              	   408: 	ret
                         	   409: 
 
@@ -8288,11 +8288,11 @@ Source: "main.asm"
 01:B0DB 00              	   308: EndAddressAlt: 		ds	2			; Original end or destination address
 01:B0DC *
 01:B0DD 00              	   309: ByteTransfer:		ds	1			; Byte to copy/transfer
-01:B0DE 00              	   310: UserCodeSize		ds	2			; Size of uploaded user code 
+01:B0DE 00              	   310: UserCodeSize:		ds	2			; Size of uploaded user code
 01:B0DF *
                         	   311: 
                         	   312: EndOfCode:
-01:B0E0 FF              	   313: 	ds	VectorTable-$,$FF			; Fill gap with $FF to optimize speed when programming the FLASH/EEPROM
+01:B0E0 FF              	   313: 	ds	VectorTable-$,0xFF			; Fill gap with 0xFF to optimize speed when programming the FLASH/EEPROM
 01:B0E1 *
                         	   314: 
                         	   315: 
@@ -8304,16 +8304,16 @@ Source: "main.asm"
                         	   321: ;
                         	   322: ; ---------------------------------------------------------------------------------------------------------------------
                         	   323: ; CONSTANT VALUES SO EXTERNALLY LOADED PROGRAMS CAN ACCESS SPECIFIC INFORMATION
-                        	   324: 	.org	$FD00
+                        	   324: 	.org	0xFD00
                         	   325: 
                         	   326: VectorTable:
                         	   327: 
-02:FD00 8000            	   328: IntVectorEnd:		dw	InterruptVectorEnd	;= $FD00			; End of interrupt vector table
-02:FD02 00FD            	   329: VectorTableStart:	dw	VectorTable			;= $FD02			; Start of vector and jump tables
-02:FD04 0080            	   330: CodeStartAddr:		dw	StartOfCode			;= $FD04			; Start of code address
-02:FD06 E0B0            	   331: CodeEndAddr:		dw	EndOfCode			;= $FD06			; End of code address
+02:FD00 8000            	   328: IntVectorEnd:		dw	InterruptVectorEnd	;= 0xFD00			; End of interrupt vector table
+02:FD02 00FD            	   329: VectorTableStart:	dw	VectorTable			;= 0xFD02			; Start of vector and jump tables
+02:FD04 0080            	   330: CodeStartAddr:		dw	StartOfCode			;= 0xFD04			; Start of code address
+02:FD06 E0B0            	   331: CodeEndAddr:		dw	EndOfCode			;= 0xFD06			; End of code address
                         	   332: 
-02:FD08 FF              	   333: 	ds	JumpTable-$,$FF				; $FF up to the jump table
+02:FD08 FF              	   333: 	ds	JumpTable-$,0xFF				; 0xFF up to the jump table
 02:FD09 *
                         	   334: 
                         	   335: 
@@ -8326,33 +8326,33 @@ Source: "main.asm"
                         	   342: ; ---------------------------------------------------------------------------------------------------------------------
                         	   343: ; JUMP TABLE TO CALL ROUTINES FROM AN EXTERNAL PROGRAM
                         	   344: 
-                        	   345: 	.org	$FE00
+                        	   345: 	.org	0xFE00
                         	   346: 	
                         	   347: JumpTable:
-03:FE00 C36B81          	   348: 	jp		Ascii2HexNibble		;= $FE00				; [A -> A][A -> A]
-03:FE03 C38F81          	   349: 	jp		Ascii2HexByte		;= $FE03				; [(HL) -> A][(HL) -> A]
-03:FE06 C3AE81          	   350: 	jp		Ascii2HexWord		;= $FE06				; [(HL) -> BC][(HL) -> BC]
-03:FE09 C3AC82          	   351: 	jp		ClearScreen			;= $FE09				; [][]
-03:FE0C C3CF88          	   352: 	jp		GetHexParameter		;= $FE0C				; [(HL) -> BC,A,(HL)][(HL) -> BC,A,(HL)]
-03:FE0F C37680          	   353: 	jp		PrintChar			;= $FE0F				; [A ->][A ->]
-03:FE12 C3B080          	   354: 	jp		PrintString			;= $FE12				; [HL ->][HL ->]
-03:FE15 C38180          	   355: 	jp		PrintCRLF			;= $FE15				; [][]
-03:FE18 C3A080          	   356: 	jp		PrintNibble			;= $FE18				; [A ->][A ->]
-03:FE1B C36380          	   357: 	jp		PrintByte			;= $FE1B				; [A ->][A ->]
-03:FE1E C3BE80          	   358: 	jp		PrintWord			;= $FE1E				; [HL ->][HL ->]
-03:FE21 C3DA89          	   359: 	jp		RangeValidation		;= $FE21				; Start&EndAddress -> C, Start&EndAddress, Start&EndAddressAlt)
-03:FE24 C3C980          	   360: 	jp		ReadChar			;= $FE24				; [-> A][-> A]
-03:FE27 C3D280          	   361: 	jp		ReadCharNoWait		;= $FE27
-03:FE2A C3F080          	   362: 	jp		ReadString			;= $FE2A				; [HL ->][HL ->]
-03:FE2D C3DD80          	   363: 	jp		ReadByte			;= $FE2D				; [-> A][-> A]
-03:FE30 C33F81          	   364: 	jp		ReadWord			;= $FE30				; [-> HL][-> HL]
-03:FE33 C33D8B          	   365: 	jp		SkipSpaces			;= $FE33				; [HL -> HL][HL -> HL]
-03:FE36 C3A182          	   366: 	jp		UpperCase			;= $FE36				; [A -> A][A -> A]
-03:FE39 C35486          	   367: 	jp		Registers			;= $FE39				; [][]
-03:FE3C C3C181          	   368: 	jp		Dec2Hex				;= $FE3C				; [(HL) -> BC]
+03:FE00 C36B81          	   348: 	jp		Ascii2HexNibble		;= 0xFE00				; [A -> A][A -> A]
+03:FE03 C38F81          	   349: 	jp		Ascii2HexByte		;= 0xFE03				; [(HL) -> A][(HL) -> A]
+03:FE06 C3AE81          	   350: 	jp		Ascii2HexWord		;= 0xFE06				; [(HL) -> BC][(HL) -> BC]
+03:FE09 C3AC82          	   351: 	jp		ClearScreen			;= 0xFE09				; [][]
+03:FE0C C3CF88          	   352: 	jp		GetHexParameter		;= 0xFE0C				; [(HL) -> BC,A,(HL)][(HL) -> BC,A,(HL)]
+03:FE0F C37680          	   353: 	jp		PrintChar			;= 0xFE0F				; [A ->][A ->]
+03:FE12 C3B080          	   354: 	jp		PrintString			;= 0xFE12				; [HL ->][HL ->]
+03:FE15 C38180          	   355: 	jp		PrintCRLF			;= 0xFE15				; [][]
+03:FE18 C3A080          	   356: 	jp		PrintNibble			;= 0xFE18				; [A ->][A ->]
+03:FE1B C36380          	   357: 	jp		PrintByte			;= 0xFE1B				; [A ->][A ->]
+03:FE1E C3BE80          	   358: 	jp		PrintWord			;= 0xFE1E				; [HL ->][HL ->]
+03:FE21 C3DA89          	   359: 	jp		RangeValidation		;= 0xFE21				; Start&EndAddress -> C, Start&EndAddress, Start&EndAddressAlt)
+03:FE24 C3C980          	   360: 	jp		ReadChar			;= 0xFE24				; [-> A][-> A]
+03:FE27 C3D280          	   361: 	jp		ReadCharNoWait		;= 0xFE27
+03:FE2A C3F080          	   362: 	jp		ReadString			;= 0xFE2A				; [HL ->][HL ->]
+03:FE2D C3DD80          	   363: 	jp		ReadByte			;= 0xFE2D				; [-> A][-> A]
+03:FE30 C33F81          	   364: 	jp		ReadWord			;= 0xFE30				; [-> HL][-> HL]
+03:FE33 C33D8B          	   365: 	jp		SkipSpaces			;= 0xFE33				; [HL -> HL][HL -> HL]
+03:FE36 C3A182          	   366: 	jp		UpperCase			;= 0xFE36				; [A -> A][A -> A]
+03:FE39 C35486          	   367: 	jp		Registers			;= 0xFE39				; [][]
+03:FE3C C3C181          	   368: 	jp		Dec2Hex				;= 0xFE3C				; [(HL) -> BC]
                         	   369: 
                         	   370: VectorEnd:
-03:FE3F FF              	   371: 	ds		StackPage-$,$FF		; $FF the rest of the jump table all the way to the stack area
+03:FE3F FF              	   371: 	ds		StackPage-$,0xFF		; 0xFF the rest of the jump table all the way to the stack area
 03:FE40 *
                         	   372: 
                         	   373: 
@@ -8365,11 +8365,11 @@ Source: "main.asm"
                         	   380: ; ---------------------------------------------------------------------------------------------------------------------
                         	   381: ; STACK AREA, ClEAR OUT WITH ZEROS
                         	   382: 
-                        	   383: 	.org	$FF00
+                        	   383: 	.org	0xFF00
                         	   384: 
                         	   385: StackPage:
                         	   386: 
-04:FF00 00              	   387: 	ds		$FFFF-$,$00			; Zero the stack all the way to end of ROM
+04:FF00 00              	   387: 	ds		0xFFFF-$,0x00			; Zero the stack all the way to end of ROM
 04:FF01 *
                         	   388: 
                         	   389: BiosEnd:
@@ -9169,8 +9169,8 @@ SIN                              A:A612
 SIN1                             A:A642
 SINTAB                           A:A65E
 SIO_Init                         A:814D
-SIO_PortA_Ctrl                   E:0002
-SIO_PortA_Data                   E:0000
+SIO_PortA_Ctrl                   E:0006
+SIO_PortA_Data                   E:0004
 SIXDIG                           A:A3E1
 SkipSpaces                       A:8B3D
 SkipSpacesEnd                    A:8B49
@@ -9335,35 +9335,35 @@ ZTHEN                            E:00A9
 ZTO                              E:00A6
 
 Symbols by value:
-0000 SIO_PortA_Data
 0000 Carry
 0000 StartAddr
 0000 NF
 0000 RST00
-0001 ChecksumErr
 0001 Negative
-0002 SN
+0001 ChecksumErr
 0002 Overflow
-0002 SIO_PortA_Ctrl
+0002 SN
 0003 CTRLC
-0004 HalfCarry
 0004 RG
-0006 OD
+0004 HalfCarry
+0004 SIO_PortA_Data
 0006 Zero
+0006 OD
+0006 SIO_PortA_Ctrl
+0007 LastRec
 0007 CTRLG
 0007 Sign
-0007 LastRec
-0008 BKSP
-0008 RST08
 0008 FC
+0008 RST08
+0008 BKSP
 0009 ErrorPtrOffset
-000A OV
 000A LF
+000A OV
 000C OM
 000D CR
 000E UL
-000F CTRLO
 000F HELP
+000F CTRLO
 0010 RST10
 0010 BS
 0011 CTRLQ

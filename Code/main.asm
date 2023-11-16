@@ -68,10 +68,10 @@ ErrorPtrOffset	= 9					; Take into account the command prompt width
 BytesFree		= (VectorTable-EndOfCode)+(StartOfCode-InterruptVectorEnd)	; Base free bytes
 
 ; I/O ADDRESSES
-SIO_PortA_Data	= 0x00				; SIO data port A
-SIO_PortB_Data	= 0x01				; SIO data port B
-SIO_PortA_Ctrl	= 0x02				; SIO control port A
-SIO_PortB_Ctrl	= 0x03				; SIO control port B
+SIO_PortA_Data	= 0x04				; SIO data port A
+SIO_PortB_Data	= 0x05				; SIO data port B
+SIO_PortA_Ctrl	= 0x06				; SIO control port A
+SIO_PortB_Ctrl	= 0x07				; SIO control port B
 
 BankSelect		= 0x30				; RAM bank select address (values (0x00 to 0xFF)
 RomDisable		= 0x38				; ROM dissable address (any value)
